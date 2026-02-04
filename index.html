@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Основные SEO-теги -->
+    <title>Продвижение личных брендов</title>
+    <meta name="description" content="Создаю личные бренды. Стратегии PR, работа со СМИ, организация мероприятий.">
+    <meta name="keywords"
+          content="личный бренд, продвижение, PR, СМИ, предприниматель, дизайнер, ювелир, салон, бизнес-журнал">
+    <meta name="author" content="Виктория Пугач">
+
+    <!-- Open Graph теги -->
+    <meta property="og:title" content="Виктория | Эксперт по продвижению личных брендов">
+    <meta property="og:description" content="Создаю личные бренды для предпринимателей.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://brendstory.ru">
+    <meta property="og:image" content="img/og-image.jpg">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Канонический URL -->
+    <link rel="canonical" href="https://brendstory.ru">
+
+    <!-- Иконки -->
+    <link rel="icon" href="./img/icons/favicon.svg" type="image/x-icon">
+
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet">
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+
+    <!-- Preload критичных ресурсов -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="js/script.js" as="script">
+</head>
+<body>
+<!-- Хедер с навигацией -->
+<header class="header" id="header">
+    <div class="container">
+        <div class="header__inner">
+
+            <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+
+            <nav class="nav" id="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#hero" class="nav__link" data-nav-link>Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link" data-nav-link>Обо Мне</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#services" class="nav__link" data-nav-link>Мои Услуги</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#cases" class="nav__link" data-nav-link>Кейсы и Истории</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#testimonials" class="nav__link" data-nav-link>Благодарности</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link" data-nav-link>Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Герой секция с видеофоном -->
+<section class="hero" id="hero">
+    <div class="hero__content">
+        <div class="hero__video-wrapper">
+            <video class="hero__video" id="heroVideo" playsinline muted loop preload="metadata">
+                <source src="video/hero-bg.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+            <div class="hero__video-overlay"></div>
+        </div>
+        <img src="./img/Photo_Hero.png" alt="фото эксперта по продвижении брендов" class="hero__photo">
+        <div class="hero__CTA">
+            <div class="hero__text">
+                <h1 class="hero__title">Виктория</h1>
+                <p class="hero__description">&#8222; Я делаю так, чтобы ваш бизнес увидели — настоящим, аутентичным, в полной
+                    мере его уникальности.&#8220;</p>
+            </div>
+            <div class="hero__buttons">
+                <a href="#contact" class="btn btn--primary" data-scroll-link>Связаться</a>
+                <a href="#cases" class="btn btn--secondary" data-scroll-link>Кейсы</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Секция "Обо мне" -->
+<section class="about section" id="about">
+    <div class="container">
+        <div class="section__header">
+            <h2 class="section__title">Обо мне</h2>
+        </div>
+        <div class="about__content">
+            <img src="./img/About_photo.png" alt="специалист за работой" class="about__photo">
+            <div class="about__text">
+                <p>Моя работа — не просто имидж: это стратегия, где аутентичность становится вашим главным конкурентным
+                    преимуществом.</p>
+                <p>Вместе мы выстраиваем личный бренд, который притягивает идеальных клиентов и отражает вашу
+                    экспертность без шаблонных решений.</p>
+            </div>
+
+            <div class="stats">
+                <div class="stats__item">
+                    <span class="stats__number" data-counter="100">0</span>
+                    <span class="stats__text">клиентов</span>
+                </div>
+                <div class="stats__item">
+                    <span class="stats__number" data-counter="150">0</span>
+                    <span class="stats__text">повышения продаж</span>
+                </div>
+                <div class="stats__item">
+                    <span class="stats__number" data-counter="8">0</span>
+                    <span class="stats__text">лет в бизнесе</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Секция "Услуги" -->
+<section class="services section" id="services">
+    <div class="container">
+        <div class="section__header">
+            <h2 class="section__title">Мои услуги</h2>
+        </div>
+
+        <div class="services__grid">
+            <article class="service-card">
+                <h3 class="service-card__title">Стратегический PR</h3>
+                <p class="service-card__text">Выстраиваю узнаваемость через истории, а не шум. Ваш бренд становится
+                    источником вдохновения для целевой аудитории — естественно, без «накруток» и шаблонных
+                    пресс-релизов.</p>
+            </article>
+
+            <article class="service-card">
+                <h3 class="service-card__title">Работа со СМИ</h3>
+                <p class="service-card__text">Публикации в профильных изданиях, подкастах и медиа-проектах. Не просто
+                    упоминания — экспертные материалы, где ваше имя ассоциируется с качеством и вкусом.</p>
+            </article>
+
+            <article class="service-card">
+                <h3 class="service-card__title">Организация мероприятий</h3>
+                <p class="service-card__text">Организуем мероприятия под ключ: Вы — в роли вдохновителя и гостя, без
+                    стресса, с комфортом и гармонией. Я превращаю идею в безупречный опыт.</p>
+            </article>
+
+            <article class="service-card">
+                <h3 class="service-card__title">Авторские обзоры</h3>
+                <p class="service-card__text">Позиционируете себя через эстетику путешествий или уникальные
+                    пространства? Создаю тексты и медиа-контент, где ваш вкус становится ориентиром для тех, кто ценит
+                    детали.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Секция "Кейсы и истории" -->
+<section class="cases section" id="cases">
+    <div class="container">
+        <div class="section__header">
+            <h2 class="section__title">Кейсы и истории</h2>
+        </div>
+
+        <div class="carousel" id="casesCarousel">
+            <div class="carousel__track-container">
+                <div class="carousel__track" id="carouselTrack">
+                    <!-- Карусель будет заполняться через JavaScript -->
+                </div>
+            </div>
+
+            <button class="carousel__btn carousel__btn--prev" id="carouselPrev" aria-label="Предыдущий слайд">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="currentColor"/>
+                </svg>
+            </button>
+
+            <button class="carousel__btn carousel__btn--next" id="carouselNext" aria-label="Следующий слайд">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.59 16.59L10 18L16 12L10 6L8.59 7.41L13.17 12L8.59 16.59Z" fill="currentColor"/>
+                </svg>
+            </button>
+
+            <div class="carousel__nav" id="carouselNav">
+                <!-- Навигация будет заполнена через JavaScript -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Секция "Благодарности" -->
+<section class="testimonials section" id="testimonials">
+    <div class="container">
+        <div class="section__header">
+            <h2 class="section__title">Благодарности</h2>
+        </div>
+
+        <div class="testimonials__grid">
+            <article class="testimonial-card">
+                <div class="testimonial-card__content">
+                    <p class="testimonial-card__text">Раньше меня путали с другими дизайнерами — теперь клиенты узнают
+                        мою эстетику с первого кадра. Даже конкуренты начали цитировать мои интервью как пример
+                        вкуса.</p>
+                </div>
+                <div class="testimonial-card__author">
+                    <span class="testimonial-card__name">Анна</span>
+                    <span class="testimonial-card__role">владелец бутика авторской одежды</span>
+                </div>
+            </article>
+
+            <article class="testimonial-card">
+                <div class="testimonial-card__content">
+                    <p class="testimonial-card__text">Не знала, что так просто можно стать узнаваемой! Теперь люди
+                        говорят: «О, это же она!» — даже без логотипа. Раньше всё было как-то тускло, а теперь —
+                        супер!</p>
+                </div>
+                <div class="testimonial-card__author">
+                    <span class="testimonial-card__name">Екатерина</span>
+                    <span class="testimonial-card__role">основательница ювелирной мастерской</span>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Секция "Контакты" -->
+<section class="contact section" id="contact">
+    <div class="container">
+        <div class="contact__inner">
+            <div class="contact__content">
+                <div class="section__header">
+                    <h2 class="section__title">Готово создать ваш уникальный бренд</h2>
+                    <p class="contact__subtitle">Свяжитесь со мной</p>
+                </div>
+
+                <div class="contact__info">
+                    <a href="tel:+79110361716" class="contact__link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 15.5C18.75 15.5 17.55 15.3 16.43 14.93C16.33 14.9 16.22 14.88 16.12 14.88C15.86 14.88 15.61 14.98 15.41 15.17L13.21 17.37C10.38 15.93 8.06 13.62 6.62 10.79L8.82 8.59C9.1 8.31 9.18 7.92 9.07 7.57C8.7 6.45 8.5 5.25 8.5 4C8.5 3.45 8.05 3 7.5 3H4C3.45 3 3 3.45 3 4C3 13.39 10.61 21 20 21C20.55 21 21 20.55 21 20V16.5C21 15.95 20.55 15.5 20 15.5Z"
+                                  fill="currentColor"/>
+                        </svg>
+                        <span>+7 (911) 036-17-16</span>
+                    </a>
+
+                    <a href="mailto:successmag@yandex.ru" class="contact__link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"
+                                  fill="currentColor"/>
+                        </svg>
+                        <span>successmag@yandex.ru</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Футер -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__inner">
+            <div class="footer__main">
+                <a href="#hero" class="footer__logo">Виктория</a>
+                <p class="footer__tagline">Эксперт по продвижению личных брендов</p>
+            </div>
+
+            <div class="footer__contacts">
+                <a href="tel:+79110361716" class="footer__link">+7 (911) 036-17-16</a>
+                <a href="mailto:successmag@yandex.ru" class="footer__link">successmag@yandex.ru</a>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2026 Виктория Пугач. Все права защищены.</p>
+                <a href="#" class="footer__policy">Политика конфиденциальности</a>
+                <p class="footer__credits">design and development by Fesik</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Скрипты -->
+<script src="js/video-bg.js" defer></script>
+<script src="js/carousel.js" defer></script>
+<script src="js/script.js" defer></script>
+</body>
+</html>

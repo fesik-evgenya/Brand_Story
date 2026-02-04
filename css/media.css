@@ -1,0 +1,359 @@
+/* Медиа-запросы для адаптивности */
+
+/* Десктоп (1440px и выше) */
+@media (min-width: 1440px) {
+    .hero__title {
+        font-size: 4rem; /* 64px */
+        letter-spacing: -0.5px; /* ~0.78% */
+    }
+
+    .section__title {
+        font-size: 2.75rem; /* 44px */
+    }
+
+    .service-card__title {
+        font-size: 1.25rem; /* 20px */
+        letter-spacing: 1px; /* 5% */
+    }
+
+    p,
+    .service-card__text,
+    .testimonial-card__text {
+        font-size: 1.125rem; /* 18px */
+    }
+
+    .btn,
+    .nav__link {
+        font-size: 1rem; /* 16px */
+        letter-spacing: 1px; /* 6.25% */
+    }
+
+    .caption {
+        font-size: 0.875rem; /* 14px */
+        letter-spacing: 0.2px; /* ~1.43% */
+    }
+
+    .container {
+        max-width: 1320px;
+        padding: 0 2rem;
+    }
+}
+
+/* Ноутбуки (1024px - 1439px) */
+@media (max-width: 1439px) and (min-width: 1024px) {
+    .hero__title {
+        font-size: 3.5rem; /* 56px */
+        letter-spacing: -0.5px; /* ~0.89% */
+    }
+
+    .section__title {
+        font-size: 2.5rem; /* 40px */
+    }
+
+    .container {
+        max-width: 1024px;
+        padding: 0 1.5rem;
+    }
+
+    .carousel__track {
+        gap: var(--spacing-md);
+    }
+
+    .case-card {
+        flex: 0 0 calc(33.333% - 1rem);
+    }
+}
+
+/* Планшеты альбомные (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .hero__title {
+        font-size: 3.5rem; /* 56px */
+    }
+
+    .section__title {
+        font-size: 2.5rem; /* 40px */
+    }
+
+    .service-card__title {
+        font-size: 1.1875rem; /* 19px */
+        letter-spacing: 1px; /* ~5.26% */
+    }
+
+    p,
+    .service-card__text,
+    .testimonial-card__text {
+        font-size: 1.0625rem; /* 17px */
+    }
+
+    .caption {
+        font-size: 0.875rem; /* 14px */
+        letter-spacing: 0.2px; /* ~1.43% */
+    }
+
+    .nav__list {
+        gap: 2rem;
+    }
+
+    .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .carousel__track {
+        gap: var(--spacing-sm);
+    }
+
+    .case-card {
+        flex: 0 0 calc(50% - 0.5rem);
+    }
+
+    .carousel__btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel__btn--prev {
+        left: 0.5rem;
+    }
+
+    .carousel__btn--next {
+        right: 0.5rem;
+    }
+}
+
+/* Планшеты портретные и мобильные (до 767px) */
+@media (max-width: 767px) {
+    /* Отключаем анимации для экономии ресурсов */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    /* Скрываем видео на мобильных */
+    .hero__video {
+        display: none;
+    }
+
+    .hero__video-wrapper {
+        background: var(--color-primary) url('../img/hero-bg-fallback.jpg') center/cover no-repeat;
+    }
+
+    .section {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .hero__title {
+        font-size: 3rem; /* 48px */
+        letter-spacing: -0.5px; /* ~1.04% */
+    }
+
+    .hero__text {
+        font-size: 1.125rem;
+    }
+
+    .section__title {
+        font-size: 2.25rem; /* 36px */
+    }
+
+    .service-card__title {
+        font-size: 1.125rem; /* 18px */
+        letter-spacing: 1px; /* ~5.56% */
+    }
+
+    p,
+    .service-card__text,
+    .testimonial-card__text {
+        font-size: 1rem; /* 16px */
+    }
+
+    .btn,
+    .nav__link {
+        font-size: 0.9375rem; /* 15px */
+        letter-spacing: 1px; /* ~6.67% */
+    }
+
+    .caption {
+        font-size: 0.8125rem; /* 13px */
+        letter-spacing: 0.2px; /* ~1.54% */
+    }
+
+    /* Бургер меню */
+    .burger {
+        display: flex;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--color-primary);
+        padding: 5rem 2rem 2rem;
+        transition: right 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav.active {
+        right: 0;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .nav__link {
+        font-size: 1.25rem;
+        padding: 0.5rem 0;
+    }
+
+    .nav__link--contact {
+        padding: 0.75rem 1.5rem;
+        margin-top: 1rem;
+    }
+
+    /* Адаптивные сетки */
+    .services__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .testimonials__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    .stats__item {
+        min-width: 100%;
+    }
+
+    .hero__buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Карусель на мобильных */
+    .carousel {
+        padding: 0 0.5rem;
+    }
+
+    .carousel__track-container {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .case-card {
+        flex: 0 0 100%;
+        min-width: 280px;
+    }
+
+    .carousel__btn {
+        display: none;
+    }
+
+    /* Футер */
+    .footer__contacts {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        align-items: center;
+    }
+
+    .footer__bottom {
+        gap: var(--spacing-xs);
+    }
+}
+
+/* Маленькие экраны (до 480px) */
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: 2.5rem;
+    }
+
+    .section__title {
+        font-size: 2rem;
+    }
+
+    .service-card {
+        padding: var(--spacing-md);
+    }
+
+    .testimonial-card {
+        padding: var(--spacing-md);
+    }
+
+    .contact__link {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0 0.75rem;
+    }
+}
+
+/* Высокие экраны */
+@media (min-height: 800px) {
+    .hero {
+        min-height: 100vh;
+    }
+
+    .hero__content {
+        padding-top: 4rem;
+    }
+}
+
+/* Печать */
+@media print {
+    .header,
+    .hero__scroll,
+    .hero__video-wrapper,
+    .carousel__btn,
+    .footer__policy,
+    .footer__credits {
+        display: none !important;
+    }
+
+    body {
+        color: #000;
+        background: #fff;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .section {
+        padding: 1rem 0;
+        page-break-inside: avoid;
+    }
+
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 0;
+    }
+
+    .hero__content {
+        text-align: left;
+    }
+}
