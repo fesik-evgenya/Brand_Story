@@ -1,0 +1,592 @@
+/* ============================================
+   СТИЛИ СТРАНИЦЫ "ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ"
+   ============================================ */
+
+/* Общие стили для страницы */
+.privacy-page {
+    background-color: var(--color-primary);
+    color: var(--color-text-secondary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Шапка страницы */
+.privacy-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(37, 34, 32, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-stroke);
+}
+
+.privacy-header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.privacy-header__logo {
+    font-family: var(--font-heading), serif;
+    font-weight: 500;
+    font-size: 1.75rem;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.privacy-header__logo:hover {
+    color: var(--color-accent);
+}
+
+/* Кнопка "Назад" */
+.privacy-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: transparent;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1.5rem;
+    color: var(--color-text-primary);
+    font-family: var(--font-body), serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.privacy-back-btn:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    transform: translateX(-5px);
+}
+
+.privacy-back-btn__icon {
+    transition: transform var(--transition-base);
+}
+
+.privacy-back-btn:hover .privacy-back-btn__icon {
+    transform: translateX(-3px);
+}
+
+/* Основной контент */
+.privacy-main {
+    flex: 1;
+    padding-top: 120px;
+    padding-bottom: var(--spacing-xl);
+}
+
+.privacy-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Заголовок политики */
+.privacy-header-section {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-stroke);
+}
+
+.privacy-title {
+    font-family: var(--font-heading), serif;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.privacy-subtitle {
+    font-family: var(--font-body), serif;
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+}
+
+.privacy-date {
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+/* Секции политики */
+.privacy-section {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-stroke);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.privacy-section:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.privacy-section__title {
+    font-family: var(--font-heading), serif;
+    font-weight: 500;
+    font-size: 1.75rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-stroke);
+}
+
+.privacy-section__content {
+    font-family: var(--font-body), serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.privacy-section__content p {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Списки */
+.privacy-list {
+    margin: var(--spacing-md) 0;
+    padding-left: var(--spacing-md);
+}
+
+.privacy-list__item {
+    margin-bottom: var(--spacing-xs);
+    position: relative;
+    padding-left: var(--spacing-sm);
+}
+
+.privacy-list__item::before {
+    content: "•";
+    color: var(--color-accent);
+    position: absolute;
+    left: 0;
+}
+
+/* Ссылки */
+.privacy-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-base);
+    border-bottom: 1px solid transparent;
+}
+
+.privacy-link:hover {
+    color: var(--color-text-primary);
+    border-bottom-color: var(--color-accent);
+}
+
+/* Контакты */
+.privacy-contacts {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: rgba(176, 176, 176, 0.1);
+    border-radius: var(--radius-sm);
+}
+
+.privacy-contact-item {
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.privacy-contact-item strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+/* Блок подтверждения */
+.privacy-confirmation {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-accent);
+    text-align: center;
+}
+
+.privacy-confirmation__text {
+    font-family: var(--font-body), serif;
+    font-size: 1.2rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.privacy-confirmation__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.privacy-confirm-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 1rem 2rem;
+    font-family: var(--font-body), serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.privacy-confirm-btn:hover {
+    background-color: var(--color-text-primary);
+    transform: scale(1.05);
+}
+
+.privacy-confirm-btn.confirmed {
+    background-color: var(--color-surface);
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+}
+
+.privacy-questions-btn {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-family: var(--font-body), serif;
+    font-size: 0.9rem;
+    transition: color var(--transition-base);
+}
+
+.privacy-questions-btn:hover {
+    color: var(--color-accent);
+}
+
+/* Футер страницы */
+.privacy-footer {
+    background-color: var(--color-surface);
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+    border-top: 1px solid var(--color-stroke);
+}
+
+.privacy-footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    text-align: center;
+}
+
+.privacy-footer__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.privacy-footer__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.privacy-footer__logo {
+    font-family: var(--font-heading), serif;
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.privacy-footer__tagline {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.privacy-footer__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.privacy-footer__link {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color var(--transition-base);
+}
+
+.privacy-footer__link:hover {
+    color: var(--color-accent);
+}
+
+.privacy-footer__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.privacy-footer__copyright {
+    color: var(--color-text-secondary);
+    font-size: 0.8rem;
+}
+
+.privacy-footer__version {
+    color: var(--color-text-secondary);
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.privacy-footer__home {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color var(--transition-base);
+}
+
+.privacy-footer__home:hover {
+    color: var(--color-text-primary);
+}
+
+/* Анимации для появления контента */
+.privacy-section,
+.privacy-confirmation {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.privacy-section:nth-child(1) { animation-delay: 0.1s; }
+.privacy-section:nth-child(2) { animation-delay: 0.2s; }
+.privacy-section:nth-child(3) { animation-delay: 0.3s; }
+.privacy-section:nth-child(4) { animation-delay: 0.4s; }
+.privacy-section:nth-child(5) { animation-delay: 0.5s; }
+.privacy-section:nth-child(6) { animation-delay: 0.6s; }
+.privacy-section:nth-child(7) { animation-delay: 0.7s; }
+.privacy-section:nth-child(8) { animation-delay: 0.8s; }
+.privacy-section:nth-child(9) { animation-delay: 0.9s; }
+.privacy-confirmation { animation-delay: 1s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Подсветка текущей секции при скролле */
+.privacy-section.active {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+   АДАПТИВНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ ПОЛИТИКИ
+   ============================================ */
+
+/* 1024px - Ноутбуки */
+@media (max-width: 1024px) {
+    .privacy-main {
+        padding-top: 100px;
+    }
+
+    .privacy-title {
+        font-size: 2.5rem;
+    }
+
+    .privacy-section {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* 768px - Планшеты и крупные мобильные */
+@media (max-width: 768px) {
+    .privacy-header {
+        padding: 0.75rem 0;
+    }
+
+    .privacy-header__logo {
+        font-size: 1.5rem;
+    }
+
+    .privacy-back-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .privacy-back-btn__text {
+        display: none;
+    }
+
+    .privacy-main {
+        padding-top: 80px;
+        padding-bottom: var(--spacing-lg);
+    }
+
+    .privacy-title {
+        font-size: 2rem;
+    }
+
+    .privacy-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .privacy-section__title {
+        font-size: 1.5rem;
+    }
+
+    .privacy-section__content {
+        font-size: 1rem;
+    }
+
+    .privacy-confirmation {
+        padding: var(--spacing-md);
+    }
+
+    .privacy-confirmation__text {
+        font-size: 1.1rem;
+    }
+}
+
+/* 600px - Средние мобильные */
+@media (max-width: 600px) {
+    .privacy-main {
+        padding-top: 70px;
+    }
+
+    .privacy-title {
+        font-size: 1.75rem;
+    }
+
+    .privacy-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .privacy-section__title {
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .privacy-list {
+        padding-left: 1rem;
+    }
+
+    .privacy-confirm-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .privacy-footer__inner {
+        gap: var(--spacing-md);
+    }
+}
+
+/* 480px - Мелкие мобильные */
+@media (max-width: 480px) {
+    .privacy-header {
+        padding: 0.5rem 0;
+    }
+
+    .privacy-header__logo {
+        font-size: 1.25rem;
+    }
+
+    .privacy-main {
+        padding-top: 60px;
+    }
+
+    .privacy-title {
+        font-size: 1.5rem;
+    }
+
+    .privacy-subtitle {
+        font-size: 1rem;
+    }
+
+    .privacy-section {
+        padding: 0.75rem;
+    }
+
+    .privacy-section__title {
+        font-size: 1.2rem;
+    }
+
+    .privacy-section__content {
+        font-size: 0.95rem;
+    }
+
+    .privacy-confirmation {
+        padding: 1rem;
+    }
+
+    .privacy-confirmation__text {
+        font-size: 1rem;
+    }
+
+    .privacy-footer {
+        padding: var(--spacing-lg) 0 var(--spacing-md);
+    }
+}
+
+/* 350px - Маленькие мобильные */
+@media (max-width: 350px) {
+    .privacy-header__logo {
+        font-size: 1.1rem;
+    }
+
+    .privacy-back-btn {
+        padding: 0.4rem 0.8rem;
+    }
+
+    .privacy-title {
+        font-size: 1.3rem;
+    }
+
+    .privacy-section {
+        padding: 0.5rem;
+    }
+
+    .privacy-section__title {
+        font-size: 1.1rem;
+    }
+
+    .privacy-confirm-btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .privacy-footer__copyright,
+    .privacy-footer__version,
+    .privacy-footer__home {
+        font-size: 0.75rem;
+    }
+}
+
+/* Отключение hover для сенсорных устройств */
+@media (hover: none) {
+    .privacy-header__logo:hover,
+    .privacy-back-btn:hover,
+    .privacy-link:hover,
+    .privacy-confirm-btn:hover,
+    .privacy-questions-btn:hover,
+    .privacy-footer__link:hover,
+    .privacy-footer__home:hover,
+    .privacy-section:hover {
+        transform: none !important;
+        background-color: initial !important;
+        color: initial !important;
+        box-shadow: none !important;
+    }
+
+    .privacy-back-btn:active {
+        background-color: var(--color-accent);
+        color: var(--color-primary);
+    }
+
+    .privacy-confirm-btn:active {
+        background-color: var(--color-text-primary);
+    }
+}

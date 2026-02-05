@@ -91,7 +91,7 @@
     }
 
     .nav__list {
-        gap: 2rem;
+        margin-right: 10px;
     }
 
     .services__grid {

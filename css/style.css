@@ -177,14 +177,14 @@ body {
 /* Основная навигация */
 .nav__list {
     display: flex;
-    gap: 0.5rem;
+    gap: 4px;
     flex-direction: column;
     position: fixed;
     width: 200px;
     left: 1058px;
     top: 50px;
     z-index: 1000;
-    margin: 0;
+    margin: 35px 0 0;
     padding: 0;
     list-style: none;
 }
@@ -195,9 +195,9 @@ body {
 }
 
 .nav__link {
-    color: var(--color-accent);
+    color: var(--color-text-primary);
     transition: color var(--transition-base);
-    padding: 0.5rem 0;
+    padding: 0.2rem 0;
     font-family: var(--font-heading), serif;
     text-decoration: none;
     font-size: 1rem;
@@ -206,7 +206,7 @@ body {
 }
 
 .nav__link:hover {
-    color: var(--color-text-primary);
+    color: var(--color-accent);
 }
 
 /* Стили для кнопки контактов в навигации */
@@ -250,7 +250,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: -1;
     background-image: url('../img/Hero_background.png');
     background-size: cover;
@@ -289,11 +289,10 @@ body {
 /* Основной контент героя */
 .hero__content {
     text-align: center;
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 0 120px 0;
+    padding: 0 0 5vh 0;
     gap: 20px;
     background: linear-gradient(180deg, #0A0A0A 0%, #252220 100%);
     align-self: stretch;
@@ -323,7 +322,7 @@ body {
     height: 242px;
     width: 100%;
     max-width: 1000px;
-    margin-bottom: 80px;
+    margin-bottom: 15vh;
 }
 
 /* Текстовая часть героя */
@@ -456,7 +455,7 @@ body {
 .about__content {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: 5vh;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -644,6 +643,7 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     letter-spacing: 0;
+    width: 100%;
 }
 
 /* Кнопки навигации карусели */
@@ -786,11 +786,11 @@ body {
 .contact__content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin: auto;
     width: 1200px;
     height: 432px;
-    gap: 100px;
+    gap: 10vh;
 }
 
 .contacts__title {
@@ -976,7 +976,7 @@ body {
     font-family: var(--font-body), serif;
     font-weight: 300;
     line-height: 1.4;
-    letter-spacing: 0.2em;
+    font-style: italic;
 }
 
 .footer__policy:hover {
@@ -991,7 +991,7 @@ body {
     font-family: var(--font-body), serif;
     font-weight: 300;
     line-height: 1.4;
-    letter-spacing: 0.2em;
+    font-style: italic;
 }
 
 .footer__credits:hover {
@@ -1013,55 +1013,226 @@ body {
 }
 
 /* ============================================
-   АДАПТИВНЫЕ СТИЛИ (MEDIA QUERIES)
+   АДАПТИВНЫЕ СТИЛИ - 1024px (Ноутбуки)
    ============================================ */
 @media (max-width: 1024px) {
+    .container {
+        max-width: 100vh;
+        padding: 0 1rem;
+    }
+
     .hero {
-        height: auto;
+        width: 100%;
+        height: 100vh;
         min-height: 600px;
         padding: 20px;
     }
 
     .hero__CTA {
         flex-direction: column;
-        gap: 40px;
-        padding: 0 20px;
+        gap: 10px;
+        padding: 24px 20px;
+        height: 100vh;
+        margin-bottom: 10vh;
     }
 
     .hero__text {
         align-items: center;
+        margin-left: 0;
         width: 100%;
+        height: auto;
     }
 
-    .hero__title,
+    .hero__title {
+        text-align: left;
+        font-size: 56px;
+        height: auto;
+        margin-bottom: 0 !important;
+        padding-left: 10vh;
+    }
+
     .hero__description {
-        text-align: center;
+        width: 100%;
+        max-width: 600px;
+        height: auto;
     }
 
     .hero__photo {
-        margin-top: 5vh;
+        margin-top: 150px;
+        width: 200px;
+        height: 286px;
+    }
+
+    .nav__list {
+        left: auto;
+        right: 20px;
+        width: 180px;
+    }
+
+    .services__grid {
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        gap: 15px;
+        max-width: 700px;
+    }
+
+    .service-card {
+        width: 100%;
+        height: auto;
+    }
+
+    .service-card__heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .service-card__heading h3 {
+        width: 100%;
+    }
+
+    .service-card__text {
+        height: auto;
+        min-height: 100px;
+    }
+
+    .testimonials__grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        max-width: 700px;
+    }
+
+    .contact {
+        width: 100%;
+        height: 100vh;
+        padding: var(--spacing-lg) 0;
+    }
+
+    .contact__content {
+        width: 100%;
+        max-width: 960px;
+        height: auto;
+        gap: 5vh;
+        padding: 0 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contacts__title {
+        font-size: 38px;
+        line-height: 1.2;
+        width: 50vh;
+        height: auto;
+    }
+
+    .contact__subtitle {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .contact__link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer__inner {
+        padding-left: 40px;
+        gap: var(--spacing-lg);
     }
 }
 
-@media (max-width: 767px) {
-    /* На мобильных отключаем видео и показываем только фоновую картинку */
-    .hero__video {
-        display: none;
+/* ============================================
+   АДАПТИВНЫЕ СТИЛИ - 768px (Планшеты и крупные мобильные)
+   ============================================ */
+@media (max-width: 768px) {
+    .container {
+        max-width: 720px;
+        padding: 0 1rem;
+    }
+
+    .section {
+        padding: var(--spacing-md) 0;
+    }
+
+    .section__title {
+        font-size: 2.25rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    /* Навигация для мобильных */
+    .burger {
+        display: flex;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(37, 34, 32, 0.98);
+        backdrop-filter: blur(10px);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-slow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav__list {
+        position: static;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav__item {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav__link {
+        font-size: 1.25rem;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
     }
 
     .hero {
         min-height: 500px;
         padding: 20px 10px;
+        width: 100%;
+    }
+
+    .hero__content {
+        padding: 0 0 60px 0;
+    }
+
+    .hero__photo {
+        width: 180px;
+        height: 257px;
+        margin-top: 100px;
+        margin-left: 0;
     }
 
     .hero__CTA {
+        padding: 20px;
         gap: 30px;
-        padding: 0;
     }
 
     .hero__buttons {
         flex-direction: column;
         width: 100%;
+        max-width: 300px;
+        height: auto;
+        gap: 15px;
     }
 
     .btn {
@@ -1069,8 +1240,454 @@ body {
         max-width: 280px;
     }
 
+    .about__info {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .about__photo {
+        width: 250px;
+        height: 133px;
+    }
+
+    .stats {
+        gap: 15px;
+    }
+
+    .stats__item {
+        min-width: 120px;
+    }
+
+    .stats__number {
+        font-size: 2.5rem;
+    }
+
+    .services__grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .service-card {
+        width: 100%;
+    }
+
+    .testimonials__grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .carousel {
+        max-width: 500px;
+        height: 400px;
+    }
+
+    .case-card {
+        min-width: 500px;
+    }
+
+    .case-card__image {
+        height: 250px;
+    }
+
+    .contact__content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .contact__subtitle {
+        width: auto;
+        height: auto;
+        font-size: 28px;
+    }
+
+    .contact__info {
+        align-items: center;
+    }
+
+    .contact__description {
+        align-items: center;
+    }
+
+    .contact__link-social {
+        gap: 30px;
+    }
+
+    .footer__inner {
+        flex-direction: column;
+        padding-left: 0;
+        gap: var(--spacing-md);
+    }
+
+    .footer__content {
+        gap: 20px;
+    }
+}
+
+/* ============================================
+   АДАПТИВНЫЕ СТИЛИ - 600px (Средние мобильные)
+   ============================================ */
+@media (max-width: 600px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .section__title {
+        font-size: 1.875rem;
+    }
+
+    .hero__title {
+        font-size: 48px;
+    }
+
+    .hero__description {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
     .hero__photo {
+        width: 160px;
+        height: 229px;
+        margin-top: 80px;
+    }
+
+    .hero__CTA {
+        padding: 15px;
+    }
+
+    .about__photo {
+        width: 200px;
+        height: 107px;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .stats__item {
+        min-width: 100%;
+    }
+
+    .carousel {
+        max-width: 400px;
+        height: 350px;
+    }
+
+    .case-card {
+        min-width: 400px;
+    }
+
+    .case-card__image {
+        height: 200px;
+    }
+
+    .carousel__btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel__btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .contacts__title {
+        font-size: 32px;
+        line-height: 1.3;
+    }
+
+    .contact__subtitle {
+        font-size: 24px;
+    }
+
+    .contact__link {
+        font-size: 1rem;
+    }
+
+    .contact__link-social {
+        gap: 20px;
+    }
+
+    .social-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer__social {
+        gap: 30px;
+    }
+}
+
+/* ============================================
+   АДАПТИВНЫЕ СТИЛИ - 480px (Мелкие мобильные)
+   ============================================ */
+@media (max-width: 480px) {
+    .section__title {
+        font-size: 1.625rem;
+    }
+
+    .hero__title {
+        font-size: 40px;
+    }
+
+    .hero__description {
+        font-size: 15px;
+    }
+
+    .hero__photo {
+        width: 140px;
+        height: 200px;
+        margin-top: 60px;
+    }
+
+    .hero__buttons {
+        max-width: 250px;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        min-width: auto;
+    }
+
+    .service-card__heading {
+        gap: 20px;
+    }
+
+    .service-card__title {
+        font-size: 18px;
+        height: auto;
+    }
+
+    .carousel {
+        max-width: 320px;
+        height: 300px;
+    }
+
+    .case-card {
+        min-width: 320px;
+    }
+
+    .case-card__image {
+        height: 150px;
+    }
+
+    .case-card__title {
+        font-size: 1.125rem;
+    }
+
+    .case-card__text {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-card__name {
+        font-size: 1.125rem;
+    }
+
+    .testimonial-card__text {
+        font-size: 0.9rem;
+    }
+
+    .contacts__title {
+        font-size: 28px;
+    }
+
+    .contact__subtitle {
+        font-size: 22px;
+    }
+
+    .contact__description {
+        gap: 20px;
+    }
+
+    .contact__link-social {
+        gap: 15px;
+    }
+
+    .social-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .footer__logo {
+        font-size: 18px;
+    }
+
+    .footer__social {
+        gap: 20px;
+    }
+}
+
+/* ============================================
+   АДАПТИВНЫЕ СТИЛИ - 350px (Маленькие мобильные)
+   ============================================ */
+@media (max-width: 350px) {
+    .section__title {
+        font-size: 1.5rem;
+    }
+
+    .hero__title {
+        font-size: 36px;
+    }
+
+    .hero__description {
+        font-size: 14px;
+    }
+
+    .hero__photo {
+        width: 120px;
+        height: 171px;
+        margin-top: 50px;
+    }
+
+    .hero__buttons {
+        max-width: 220px;
+    }
+
+    .btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+    .about__photo {
         width: 180px;
-        height: 257px;
+        height: 96px;
+    }
+
+    .stats__number {
+        font-size: 2rem;
+    }
+
+    .service-card {
+        padding: 15px;
+    }
+
+    .service-card__title {
+        font-size: 16px;
+    }
+
+    .service-card__text {
+        font-size: 0.85rem;
+    }
+
+    .carousel {
+        max-width: 280px;
+        height: 280px;
+    }
+
+    .case-card {
+        min-width: 280px;
+    }
+
+    .carousel__btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .carousel__btn--prev {
+        left: 0.5rem;
+    }
+
+    .carousel__btn--next {
+        right: 0.5rem;
+    }
+
+    .contacts__title {
+        font-size: 24px;
+    }
+
+    .contact__subtitle {
+        font-size: 20px;
+    }
+
+    .contact__link {
+        font-size: 0.9rem;
+    }
+
+    .contact__link-social {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .social-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .footer__tagline,
+    .footer__link,
+    .footer__copyright,
+    .footer__policy,
+    .footer__credits {
+        font-size: 0.75rem;
+    }
+}
+
+/* ============================================
+   ОТКЛЮЧЕНИЕ HOVER ДЛЯ СЕНСОРНЫХ УСТРОЙСТВ
+   ============================================ */
+@media (hover: none) {
+    .header__logo:hover,
+    .nav__link:hover,
+    .nav__link--contact:hover,
+    .btn--primary:hover,
+    .btn--secondary:hover,
+    .service-card:hover,
+    .carousel__btn:hover,
+    .testimonial-card:hover,
+    .contact__link:hover,
+    .social-icon:hover,
+    .footer__policy:hover,
+    .footer__credits:hover {
+        /* Сбрасываем hover-эффекты к дефолтным состояниям */
+        transform: none !important;
+        box-shadow: none !important;
+        background-color: initial !important;
+        color: initial !important;
+        border-color: initial !important;
+    }
+
+    /* Для кнопок навигации - оставляем активное состояние только при нажатии */
+    .nav__link--contact:active {
+        background-color: var(--color-accent);
+        color: var(--color-primary);
+    }
+
+    .btn--primary:active {
+        background-color: transparent;
+        color: var(--color-white);
+        border: 1px solid var(--color-white);
+    }
+
+    .btn--secondary:active {
+        background-color: var(--color-accent);
+        color: var(--color-primary);
+    }
+
+    /* Убираем трансформации для карточек */
+    .service-card:active {
+        transform: translateY(2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .testimonial-card:active {
+        transform: translateY(-4px);
+    }
+
+    /* Для социальных иконок */
+    .social-icon:active {
+        transform: scale(1.05);
+    }
+
+    .social-icon:active svg path {
+        fill: var(--color-white);
+    }
+
+    /* Для кнопок карусели */
+    .carousel__btn:active {
+        background-color: var(--color-primary);
+        transform: translateY(-50%) scale(1.1);
     }
 }
