@@ -1532,7 +1532,6 @@ body.no-scroll {
 
     .hero__content {
         flex-direction: column;
-
         margin: 0 auto 40px;
         padding: 20px;
         align-items: flex-end;
@@ -1550,16 +1549,13 @@ body.no-scroll {
     }
 
     .hero__CTA {
-        width: 80%;
+        width: 100%;
         max-width: 100%;
-        align-items: center;
-        text-align: center;
-        flex-direction: column;
-        justify-content: center;
-        padding: 24px 56px 40px;
-        gap: 20px;
-        height: auto;
-        margin: 5px auto;
+        position: relative;
+        bottom: auto;
+        left: auto;
+        padding: 20px 0;
+        margin-top: auto;
     }
 
     .hero__text {
