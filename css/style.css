@@ -352,7 +352,6 @@ body {
     height: 100%;
     min-height: 100vh;
     z-index: 1;
-    overflow: hidden;
 }
 
 .header__container {
@@ -1829,6 +1828,7 @@ body.no-scroll {
 
     .hero__content {
         padding: 15px;
+        bottom: calc(100vh/5);
     }
 
     .hero__photo {
