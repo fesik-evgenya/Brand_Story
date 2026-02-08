@@ -1521,7 +1521,7 @@ body.no-scroll {
     .hero__content {
         flex-direction: column;
         align-items: flex-end;
-        justify-content: space-between;
+        justify-content: space-evenly;
         padding: 20px;
         height: 100vh;
     }
@@ -1541,6 +1541,7 @@ body.no-scroll {
         padding: 24px 56px 40px;
         gap: 20px;
         height: auto;
+        margin: 5px auto;
     }
 
     .hero__text {
