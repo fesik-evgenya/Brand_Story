@@ -1520,7 +1520,7 @@ body.no-scroll {
 
     .hero__content {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
         justify-content: space-between;
         padding: 20px;
         height: 100vh;
