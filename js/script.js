@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let activeNavItem = null;
 
     // Константы для смещения
-    const EXTRA_OFFSET = 30;
+    const EXTRA_OFFSET = 20;
     const HEADER_STICKY_THRESHOLD = 100;
     const MOBILE_BREAKPOINT = 1024;
 
@@ -274,6 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ===================== ПЛАВНАЯ ПРОКРУТКА =====================
 
+    // Функция плавной прокрутки
     function smoothScrollTo(targetId, extraOffset = 0, closeMenu = false) {
         return new Promise((resolve, reject) => {
             const targetElement = document.querySelector(targetId);
@@ -287,38 +288,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - totalOffset;
 
-            if (closeMenu && isMobileDevice()) {
-                closeMobileMenu();
-            }
-
+            // Обновляем активный пункт ДО прокрутки
             updateActiveNavItem(targetId);
 
-            if (supportsSmoothScroll) {
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+            // Прокручиваем БЕЗ закрытия меню
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
 
-                // Проверка завершения прокрутки
-                const checkScroll = () => {
-                    if (Math.abs(window.scrollY - targetPosition) < 5) {
-                        history.pushState(null, null, targetId);
-                        setTimeout(resolve, 100);
-                    } else {
-                        setTimeout(checkScroll, 50);
+            // Закрываем меню ТОЛЬКО после завершения прокрутки
+            const checkScroll = setInterval(() => {
+                if (Math.abs(window.scrollY - targetPosition) < 5) {
+                    clearInterval(checkScroll);
+
+                    // Закрываем меню ПОСЛЕ прокрутки
+                    if (closeMenu && window.innerWidth <= MOBILE_BREAKPOINT) {
+                        closeMobileMenu();
                     }
-                };
-                setTimeout(checkScroll, 100);
-            } else {
-                // Fallback для браузеров без поддержки smooth scroll
-                window.scrollTo(0, targetPosition);
-                history.pushState(null, null, targetId);
-                setTimeout(resolve, 300);
-            }
+
+                    setTimeout(resolve, 100);
+                }
+            }, 100);
 
             // Таймаут на случай если прокрутка не сработает
             setTimeout(() => {
-                history.pushState(null, null, targetId);
+                clearInterval(checkScroll);
+                if (closeMenu && window.innerWidth <= MOBILE_BREAKPOINT) {
+                    closeMobileMenu();
+                }
                 resolve();
             }, 1000);
         });
@@ -398,6 +396,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', handleStickyHeaderAndActiveMenu);
 
+    // Исправленный обработчик кликов по ссылкам навигации
     function createLinkClickHandler(linkElement) {
         return async function(e) {
             if (e.cancelable) {
@@ -409,6 +408,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             updateActiveNavItem(targetId);
             try {
+                // closeMenu = true — закрываем меню ПОСЛЕ прокрутки
                 await smoothScrollTo(targetId, EXTRA_OFFSET, true);
             } catch (error) {
                 console.error('Ошибка при прокрутке:', error);

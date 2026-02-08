@@ -70,9 +70,14 @@
 │ ├── video-bg.js        # Управление видео-фоном
 │ └── privacy-policy.js  # Интерактивность для политики
 ├── img/                  # Изображения
-│ ├── favicon.svg           # Иконка сайта
-│ ├── Hero_background.png   # Фон для мобильных
-│ └── ...                   # Остальные изображения
+│   │  └── icons/                  # Иконка сайта
+│   │      ├── favicon.svg            # Иконка сайта
+│   │      └── logo_card-service.svg  # Иконка карточек услуг
+│   ├── About_photo.png      # Фото специалиста секция <Обо мне>
+│   ├── Hero_background.png  # Фон для Херо-блока
+│   ├── og-image.png         # Превью для Опен Граф
+│   ├── Photo_Hero.png       # Фото специалиста секция <Херо>
+│   └── placeholder.jpg      # Плейсхолдер
 ├── video/             # Видео-файлы
 ├── index.html             # Главная страница
 └── privacy-policy.html    # Страница политики

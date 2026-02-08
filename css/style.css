@@ -105,7 +105,7 @@ body {
 }
 
 /* ============================================
-   ШАПКА САЙТА (HEADER) - ИСПРАВЛЕННАЯ ВЕРСИЯ
+   ШАПКА САЙТА (HEADER)
    ============================================ */
 .header {
     position: fixed;
@@ -544,7 +544,6 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* FIX: Адаптивные размеры */
     max-width: 100%;
     aspect-ratio: 300/160;
 }
@@ -609,7 +608,6 @@ body {
     box-sizing: border-box;
 }
 
-/* FIX: Проблема 3 - адаптивная сетка для секции "Услуги" */
 .services__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -629,10 +627,9 @@ body {
     align-items: flex-start;
     padding: 20px;
     gap: 16px;
-    /* FIX: Адаптивная ширина карточки */
     width: 100%;
     height: 100%;
-    min-width: 0; /* Важно для адаптивности */
+    min-width: 0;
 }
 
 .service-card:hover {
@@ -644,7 +641,6 @@ body {
     display: flex;
     gap: 40px;
     align-items: center;
-    /* FIX: Адаптивность заголовка */
     width: 100%;
     flex-wrap: wrap;
 }
@@ -656,10 +652,9 @@ body {
     line-height: 24px;
     letter-spacing: 1px;
     color: var(--color-text-primary);
-    /* FIX: Убираем фиксированную ширину и высоту для заголовка */
     margin: 0;
     flex: 1;
-    min-width: 0; /* Важно для адаптивности */
+    min-width: 0;
 }
 
 .service-card__text {
@@ -671,7 +666,6 @@ body {
     line-height: 1.6;
     letter-spacing: 0;
     margin: 0;
-    /* FIX: Убираем фиксированную высоту текста */
     height: auto;
 }
 
@@ -687,7 +681,6 @@ body {
     box-sizing: border-box;
 }
 
-/* FIX: Проблема 3 - адаптивность карусели */
 .carousel {
     position: relative;
     max-width: 800px;
@@ -711,7 +704,6 @@ body {
 /* Карточка кейса */
 .case-card {
     flex: 0 0 100%; /* Всегда показываем по 1 слайду */
-    /* FIX: Убираем фиксированную min-width */
     width: 100%;
     background-color: var(--color-surface);
     border-radius: var(--radius-md);
@@ -723,7 +715,6 @@ body {
 
 .case-card__image {
     width: 100%;
-    /* FIX: Адаптивная высота изображения */
     height: 300px;
     object-fit: cover;
 }
@@ -786,6 +777,84 @@ body {
 .carousel__btn svg {
     width: 24px;
     height: 24px;
+}
+
+@media (max-width: 1024px) {
+    .carousel__btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    .carousel__btn svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .carousel__btn--prev {
+        left: 0.75rem; /* Было 1rem */
+    }
+
+    .carousel__btn--next {
+        right: 0.75rem; /* Было 1rem */
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel__btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel__btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .carousel__btn--prev {
+        left: 0.5rem; /* Было 1rem */
+    }
+
+    .carousel__btn--next {
+        right: 0.5rem; /* Было 1rem */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel__btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .carousel__btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .carousel__btn--prev {
+        left: 0.25rem; /* Было 0.5rem */
+    }
+
+    .carousel__btn--next {
+        right: 0.25rem; /* Было 0.5rem */
+    }
+}
+
+@media (max-width: 768px) {
+    .case-card__content {
+        padding: var(--spacing-sm);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .case-card__title {
+        font-size: 1.125rem;
+        line-height: 1.3;
+    }
+
+    .case-card__text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
 }
 
 /* Точки навигации карусели */
@@ -1129,7 +1198,6 @@ body.no-scroll {
     width: 100%;
 }
 
-/* FIX: Общие стили для навигации на всех разрешениях */
 .burger {
     display: none;
 }
@@ -1298,7 +1366,6 @@ body.no-scroll {
         width: 100%;
     }
 
-    /* FIX: Адаптивная сетка для секции "Услуги" на планшетах */
     .services__grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
@@ -1385,14 +1452,12 @@ body.no-scroll {
         margin-bottom: var(--spacing-xl);
     }
 
-    /* FIX: Адаптивность секции "Обо мне" */
     .about__info {
         flex-direction: column;
         align-items: center;
         gap: 20px;
     }
 
-    /* FIX: Уменьшаем gap для мобильных устройств */
     .about__photo {
         width: 250px;
         height: auto;
@@ -1410,7 +1475,6 @@ body.no-scroll {
         font-size: 2.5rem;
     }
 
-    /* FIX: Секция "Услуги" - одна колонка на мобильных */
     .services__grid {
         grid-template-columns: 1fr !important;
         max-width: 500px;
@@ -1427,7 +1491,6 @@ body.no-scroll {
         height: auto;
     }
 
-    /* FIX: Секция "Кейсы" - адаптивность */
     .carousel {
         max-width: 100% !important;
         width: 90vw !important;
@@ -1587,7 +1650,6 @@ body.no-scroll {
    АДАПТИВНЫЕ СТИЛИ - 600px (Средние мобильные)
    ============================================ */
 @media (max-width: 600px) {
-    /* FIX: Дополнительная адаптивность для секции "Обо мне" */
     .about__info {
         gap: 15px;
     }
@@ -1605,7 +1667,6 @@ body.no-scroll {
         min-width: 100%;
     }
 
-    /* FIX: Адаптивность карусели для средних мобильных */
     .carousel {
         height: auto;
     }
@@ -1683,7 +1744,6 @@ body.no-scroll {
    АДАПТИВНЫЕ СТИЛИ - 480px (Мелкие мобильные)
    ============================================ */
 @media (max-width: 480px) {
-    /* FIX: Адаптивность для очень маленьких экранов */
     .about__photo {
         width: 180px;
     }
@@ -1801,7 +1861,6 @@ body.no-scroll {
    АДАПТИВНЫЕ СТИЛИ - 350px (Маленькие мобильные)
    ============================================ */
 @media (max-width: 350px) {
-    /* FIX: Адаптивность для самых маленьких экранов */
     .about__photo {
         width: 150px;
     }
