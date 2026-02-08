@@ -1842,6 +1842,7 @@ body.no-scroll {
         gap: 15px;
         flex-direction: column;
         justify-content: center;
+        margin: auto;
     }
 
     .hero__title {
