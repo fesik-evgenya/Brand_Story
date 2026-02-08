@@ -1,6 +1,5 @@
 /**
- * Основной скрипт сайта
- * Бургер-меню, плавная прокрутка, анимации при скролле
+ * Скрипт для анимаций и работы с бургер-меню
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -12,122 +11,177 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.getElementById('header');
     const sections = document.querySelectorAll('.section, .hero');
     const counters = document.querySelectorAll('[data-counter]');
-    const heroVideoWrapper = document.querySelector('.hero__video-wrapper');
     const navList = nav ? nav.querySelector('.nav__list') : null;
     const heroCTA = document.querySelector('.hero__CTA');
     const heroTitle = document.querySelector('.hero__title');
     const heroDescription = document.querySelector('.hero__description');
 
+    // Создаем оверлей для бургер-меню
+    const burgerOverlay = document.createElement('div');
+    burgerOverlay.className = 'burger-overlay';
+    document.body.appendChild(burgerOverlay);
+
     // Флаги для анимаций
     let heroNavAnimated = false;
     let countersAnimated = false;
+    let isMenuAnimating = false;
+    let activeNavItem = null;
 
-    // Проверка мобильного устройства
-    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    // Константы для смещения
+    const EXTRA_OFFSET = 30;
+    const HEADER_STICKY_THRESHOLD = 100;
+    const MOBILE_BREAKPOINT = 1024;
 
-    // Переменная для хранения фиксированной позиции
-    let fixedNavPosition = null;
-
-    // ===================== ФУНКЦИИ ДЛЯ РАБОТЫ С МЕНЮ =====================
-
-    // Функция для сброса стилей меню на мобильных
-    function resetMobileMenuStyles() {
-        if (!navList || window.innerWidth > 767) return;
-
-        navList.style.position = '';
-        navList.style.top = '';
-        navList.style.left = '';
-        navList.style.transform = '';
-        navList.style.width = '';
-        navList.style.maxWidth = '';
-        navList.style.maxHeight = '';
-        navList.style.overflowY = '';
-        navList.style.background = '';
-        navList.style.backdropFilter = '';
-        navList.style.padding = '';
-        navList.style.borderRadius = '';
-        navList.style.zIndex = '';
+    // Динамическая функция для статической переменной
+    function isMobileDevice() {
+        return window.innerWidth <= MOBILE_BREAKPOINT;
     }
 
-    // Функция для центрирования меню на мобильных
-    function centerMobileMenu() {
-        if (!navList || window.innerWidth > 767) return;
+    // Проверка поддержки плавной прокрутки
+    const supportsSmoothScroll = 'scrollBehavior' in document.documentElement.style;
 
-        navList.style.position = 'fixed';
-        navList.style.top = '50%';
-        navList.style.left = '50%';
-        navList.style.transform = 'translate(-50%, -50%)';
-        navList.style.width = '90%';
-        navList.style.maxWidth = '300px';
-        navList.style.maxHeight = '80vh';
-        navList.style.overflowY = 'auto';
-        navList.style.background = 'rgba(37, 34, 32, 0.95)';
-        navList.style.backdropFilter = 'blur(10px)';
-        navList.style.padding = '2rem';
-        navList.style.borderRadius = '8px';
-        navList.style.zIndex = '1002';
+    // ===================== ФУНКЦИИ ДЛЯ РАБОТЫ С МОБИЛЬНЫМ МЕНЮ =====================
+
+    // Функция открытия меню с правой стороны
+    function openMobileMenu() {
+        if (isMenuAnimating || !isMobileDevice()) return;
+
+        isMenuAnimating = true;
+
+        // Включаем прокрутку для body
+        document.body.classList.add('no-scroll');
+
+        // Показываем оверлей
+        burgerOverlay.style.display = 'block';
+        setTimeout(() => {
+            burgerOverlay.classList.add('active');
+        }, 10);
+
+        // Показываем меню и добавляем класс active
+        nav.style.display = 'flex';
+        nav.classList.add('active');
+
+        // Даем время для отображения, затем анимируем
+        setTimeout(() => {
+            nav.style.transform = 'translateX(0)';
+            nav.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        }, 20);
+
+        burger.classList.add('active');
+        burger.setAttribute('aria-expanded', 'true');
+
+        setTimeout(() => {
+            isMenuAnimating = false;
+        }, 400);
     }
 
-    // Функция для вычисления и установки фиксированной позиции меню
-    function setFixedNavPosition() {
-        if (!heroVideoWrapper || !navList || window.innerWidth <= 767) return;
+    // Функция закрытия меню с выезжанием вправо
+    function closeMobileMenu() {
+        if (isMenuAnimating || !isMobileDevice()) return;
 
-        const videoWrapperRect = heroVideoWrapper.getBoundingClientRect();
+        isMenuAnimating = true;
 
-        // Вычисляем расстояние от правого края окна до правого края videoWrapper
-        const distanceFromRight = window.innerWidth - videoWrapperRect.right;
+        // Анимация скрытия меню
+        nav.style.transform = 'translateX(100%)';
+        nav.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
 
-        // Устанавливаем фиксированную позицию
-        navList.style.position = 'fixed';
-        navList.style.top = '10px';
-        navList.style.right = (distanceFromRight + 2) + 'px';
-        navList.style.zIndex = '1001';
-        navList.style.left = 'auto';
+        burger.classList.remove('active');
+        burger.setAttribute('aria-expanded', 'false');
+        burgerOverlay.classList.remove('active');
+        nav.classList.remove('active');
 
-        // Сохраняем значение для использования при ресайзе
-        fixedNavPosition = distanceFromRight;
+        // Ждем завершения анимации и скрываем элементы
+        setTimeout(() => {
+            nav.style.display = 'none';
+            nav.style.transform = '';
+            nav.style.transition = '';
+            burgerOverlay.style.display = 'none';
+            document.body.classList.remove('no-scroll');
+            isMenuAnimating = false;
+        }, 300);
+    }
+
+    // Функция переключения меню
+    function toggleMobileMenu(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        if (!isMobileDevice()) return;
+
+        if (burger.classList.contains('active')) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    }
+
+    // ===================== ФУНКЦИИ ДЛЯ ВЫДЕЛЕНИЯ АКТИВНОГО ПУНКТА МЕНЮ =====================
+
+    function updateActiveNavItem(targetId = null) {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+
+        if (targetId) {
+            const activeLink = document.querySelector(`[data-nav-link][href="${targetId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+                activeNavItem = activeLink;
+            }
+        } else {
+            const scrollPosition = window.scrollY + 100;
+            let currentSectionId = '#hero';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSectionId = `#${section.id}`;
+                }
+            });
+
+            const activeLink = document.querySelector(`[data-nav-link][href="${currentSectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+                activeNavItem = activeLink;
+            }
+        }
     }
 
     // ===================== ФУНКЦИИ АНИМАЦИЙ =====================
 
-    // Функция для плавного сброса и запуска анимации элемента
     function animateElementWithReset(element, options = {}) {
         if (!element) return;
 
         const {
             delay = 0,
             duration = 1200,
-            easing = 'cubic-bezier(0.645, 0.045, 0.355, 1)', // Стандартная плавная кривая
+            easing = 'cubic-bezier(0.645, 0.045, 0.355, 1)',
             resetFirst = true
         } = options;
 
-        // Сохраняем текущие стили перехода
         const originalTransition = element.style.transition;
 
         if (resetFirst) {
-            // Сбрасываем анимацию
             element.style.transition = 'none';
             element.style.opacity = '0';
-
-            // Принудительная перерисовка для сброса
             void element.offsetWidth;
         }
 
-        // Устанавливаем новую анимацию
         setTimeout(() => {
             element.style.transition = `opacity ${duration}ms ${easing} ${delay}ms`;
             element.style.opacity = '1';
 
-            // Восстанавливаем оригинальную анимацию после завершения
             setTimeout(() => {
                 element.style.transition = originalTransition || '';
             }, duration + delay);
         }, 10);
     }
 
-    // Анимация элементов героя - запускается каждый раз при показе Hero
     function animateHeroElements() {
-        // Анимируем блок CTA каждый раз
         if (heroCTA) {
             animateElementWithReset(heroCTA, {
                 delay: 300,
@@ -136,8 +190,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // Анимируем меню только при первом запуске на десктопе
-        if (navList && window.innerWidth > 767 && !heroNavAnimated) {
+        // Анимируем навигацию только на десктопе
+        if (navList && !isMobileDevice() && !heroNavAnimated) {
             animateElementWithReset(navList, {
                 delay: 600,
                 duration: 1800,
@@ -146,7 +200,6 @@ document.addEventListener('DOMContentLoaded', function() {
             heroNavAnimated = true;
         }
 
-        // Анимация для заголовка и описания (опционально, для дополнительной плавности)
         if (heroTitle) {
             setTimeout(() => {
                 heroTitle.classList.add('hero-title-animated');
@@ -160,24 +213,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Функция сброса анимации Hero для повторного запуска
     function resetHeroAnimations() {
         if (heroCTA) {
             heroCTA.style.opacity = '0';
         }
-
-        // Для меню на мобильных тоже сбрасываем
-        if (window.innerWidth <= 767 && navList) {
-            navList.style.opacity = '0';
-        }
     }
 
-    // Анимация счетчиков
     function animateCounters() {
         counters.forEach(counter => {
             const target = parseInt(counter.getAttribute('data-counter'));
-            const duration = 2000; // 2 секунды
-            const step = target / (duration / 16); // 60fps
+            const duration = 2000;
+            const step = target / (duration / 16);
 
             let current = 0;
             const timer = setInterval(() => {
@@ -186,9 +232,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     current = target;
                     clearInterval(timer);
 
-                    // Определяем какой символ добавить в зависимости от значения
                     let symbol = '';
-                    let position = 'after'; // по умолчанию символ после
+                    let position = 'after';
 
                     if (target === 100) {
                         symbol = '+';
@@ -199,7 +244,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         position = 'before';
                     }
 
-                    // Добавляем символ в нужную позицию
                     if (symbol && position === 'after') {
                         counter.textContent = target.toString() + symbol;
                     } else if (symbol && position === 'before') {
@@ -214,250 +258,249 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ===================== ОБРАБОТЧИКИ СОБЫТИЙ И ИНИЦИАЛИЗАЦИЯ =====================
+    // ===================== STICKY HEADER И АКТИВНОЕ МЕНЮ =====================
 
-    // Инициализация позиционирования меню
-    window.addEventListener('load', function() {
-        if (window.innerWidth > 767) {
-            setFixedNavPosition();
+    function handleStickyHeaderAndActiveMenu() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+        if (scrollTop > HEADER_STICKY_THRESHOLD) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
         }
 
-        // Проверяем есть ли якорь в URL при загрузке
+        updateActiveNavItem();
+    }
+
+    // ===================== ПЛАВНАЯ ПРОКРУТКА =====================
+
+    function smoothScrollTo(targetId, extraOffset = 0, closeMenu = false) {
+        return new Promise((resolve, reject) => {
+            const targetElement = document.querySelector(targetId);
+            if (!targetElement) {
+                reject(new Error(`Элемент ${targetId} не найден`));
+                return;
+            }
+
+            const headerHeight = header ? header.offsetHeight : 0;
+            const totalOffset = headerHeight + extraOffset;
+
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - totalOffset;
+
+            if (closeMenu && isMobileDevice()) {
+                closeMobileMenu();
+            }
+
+            updateActiveNavItem(targetId);
+
+            if (supportsSmoothScroll) {
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Проверка завершения прокрутки
+                const checkScroll = () => {
+                    if (Math.abs(window.scrollY - targetPosition) < 5) {
+                        history.pushState(null, null, targetId);
+                        setTimeout(resolve, 100);
+                    } else {
+                        setTimeout(checkScroll, 50);
+                    }
+                };
+                setTimeout(checkScroll, 100);
+            } else {
+                // Fallback для браузеров без поддержки smooth scroll
+                window.scrollTo(0, targetPosition);
+                history.pushState(null, null, targetId);
+                setTimeout(resolve, 300);
+            }
+
+            // Таймаут на случай если прокрутка не сработает
+            setTimeout(() => {
+                history.pushState(null, null, targetId);
+                resolve();
+            }, 1000);
+        });
+    }
+
+    // ===================== ОБРАБОТЧИКИ СОБЫТИЙ =====================
+
+    // Инициализация при загрузке
+    function initializeOnLoad() {
         const hash = window.location.hash;
         const isHeroSection = hash === '' || hash === '#hero' || !hash;
 
+        // Убедимся, что меню скрыто на мобильных при загрузке
+        if (isMobileDevice() && nav) {
+            nav.style.display = 'none';
+            nav.style.transform = 'translateX(100%)';
+            nav.classList.remove('active');
+        }
+
         if (isHeroSection) {
-            // Если загружаемся на Hero-секции, проверяем ее видимость
             const heroSection = document.getElementById('hero');
             if (heroSection) {
                 const heroRect = heroSection.getBoundingClientRect();
                 const isHeroVisible = heroRect.top < window.innerHeight && heroRect.bottom > 0;
 
                 if (isHeroVisible) {
-                    // Задержка для плавного появления после загрузки
                     setTimeout(() => {
                         animateHeroElements();
                     }, 500);
                 } else {
-                    // Если Hero не виден, сбрасываем анимации для будущих запусков
                     resetHeroAnimations();
                 }
             }
         } else {
-            // Если загружаемся НЕ на Hero-секции, НЕ запускаем анимации Hero
             resetHeroAnimations();
-
-            // Сразу устанавливаем активный пункт меню для текущего якоря
-            setTimeout(() => {
-                const targetSection = document.querySelector(hash);
-                if (targetSection) {
-                    const headerHeight = header ? header.offsetHeight : 0;
-                    const scrollTop = targetSection.offsetTop - headerHeight - 20;
-
-                    // Устанавливаем активный пункт меню
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        const href = link.getAttribute('href');
-                        if (href === hash) {
-                            link.classList.add('active');
-                        }
+            if (hash) {
+                setTimeout(() => {
+                    smoothScrollTo(hash, EXTRA_OFFSET, false).catch(error => {
+                        console.error('Ошибка при прокрутке:', error);
                     });
-                }
-            }, 100);
+                }, 100);
+            }
         }
-    });
 
-    // Обработка изменения размера окна
+        updateActiveNavItem();
+        handleStickyHeaderAndActiveMenu();
+    }
+
+    window.addEventListener('load', initializeOnLoad);
+
     window.addEventListener('resize', function() {
-        if (window.innerWidth > 767 && heroVideoWrapper && navList) {
-            // При ресайзе пересчитываем позицию
-            const videoWrapperRect = heroVideoWrapper.getBoundingClientRect();
-            const distanceFromRight = window.innerWidth - videoWrapperRect.right;
-
-            navList.style.right = (distanceFromRight + 2) + 'px';
-            fixedNavPosition = distanceFromRight;
-        } else {
-            resetMobileMenuStyles();
-        }
-
-        // При переходе с мобильного на десктоп сбрасываем флаг анимации меню
-        if (window.innerWidth > 767 && heroNavAnimated) {
+        // Обновляем состояние меню при изменении размера окна
+        if (!isMobileDevice()) {
+            // На десктопе - показываем меню, сбрасываем анимации
+            if (nav) {
+                nav.style.display = '';
+                nav.style.transform = '';
+                nav.style.transition = '';
+                nav.classList.remove('active');
+            }
+            burger.classList.remove('active');
+            burgerOverlay.style.display = 'none';
+            document.body.classList.remove('no-scroll');
             heroNavAnimated = false;
+        } else {
+            // На мобильных - скрываем меню
+            if (nav) {
+                nav.style.display = 'none';
+                nav.style.transform = 'translateX(100%)';
+                nav.classList.remove('active');
+            }
         }
+
+        updateActiveNavItem();
+        handleStickyHeaderAndActiveMenu();
     });
 
-    // Обновляем подсветку активного пункта меню при скролле
-    let scrollTimeout;
-    window.addEventListener('scroll', function() {
-        if (scrollTimeout) {
-            clearTimeout(scrollTimeout);
-        }
+    window.addEventListener('scroll', handleStickyHeaderAndActiveMenu);
 
-        scrollTimeout = setTimeout(function() {
-            // Подсветка активного пункта меню (только на десктопе)
-            if (window.innerWidth > 767) {
-                let currentSection = '';
-                const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const headerHeight = header ? header.offsetHeight : 0;
-
-                    if (scrollTop >= (sectionTop - headerHeight - 100)) {
-                        currentSection = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    const href = link.getAttribute('href');
-                    if (href === `#${currentSection}`) {
-                        link.classList.add('active');
-                    }
-                });
+    function createLinkClickHandler(linkElement) {
+        return async function(e) {
+            if (e.cancelable) {
+                e.preventDefault();
             }
 
-            // Изменение стиля хедера при скролле
-            const scrollTop = window.scrollY || document.documentElement.scrollTop;
-            if (header) {
-                if (scrollTop > 50) {
-                    header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-                } else {
-                    header.style.boxShadow = 'none';
-                }
-            }
-        }, 100);
-    });
+            const targetId = linkElement.getAttribute('href');
+            if (targetId === '#') return;
 
-    // Бургер-меню
+            updateActiveNavItem(targetId);
+            try {
+                await smoothScrollTo(targetId, EXTRA_OFFSET, true);
+            } catch (error) {
+                console.error('Ошибка при прокрутке:', error);
+            }
+
+            if (targetId === '#hero') {
+                resetHeroAnimations();
+                setTimeout(() => {
+                    animateHeroElements();
+                }, 300);
+            }
+        };
+    }
+
+    // Обработчики для бургер-меню
     if (burger && nav) {
-        burger.addEventListener('click', function() {
-            const isActive = !this.classList.contains('active');
-            this.classList.toggle('active');
-            nav.classList.toggle('active');
-            document.body.classList.toggle('no-scroll');
-            this.setAttribute('aria-expanded', isActive.toString());
+        burger.addEventListener('click', toggleMobileMenu);
 
-            // На мобильных центрируем меню при открытии
-            if (window.innerWidth <= 767 && nav.classList.contains('active') && navList) {
-                centerMobileMenu();
-            } else if (window.innerWidth <= 767 && navList) {
-                resetMobileMenuStyles();
+        // обработчик touchend для лучшей совместимости
+        burger.addEventListener('touchend', function(e) {
+            if (e.cancelable) {
+                e.preventDefault();
             }
-        });
+            toggleMobileMenu(e);
+        }, { passive: false });
+
+        burgerOverlay.addEventListener('click', closeMobileMenu);
+        burgerOverlay.addEventListener('touchend', function(e) {
+            if (e.cancelable) {
+                e.preventDefault();
+            }
+            closeMobileMenu();
+        }, { passive: false });
 
         // Закрытие меню при клике на ссылку
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 767) {
-                    burger.classList.remove('active');
-                    nav.classList.remove('active');
-                    document.body.classList.remove('no-scroll');
-                    burger.setAttribute('aria-expanded', 'false');
-
-                    resetMobileMenuStyles();
-                }
-            });
+            const handler = createLinkClickHandler(link);
+            link.addEventListener('click', handler);
+            link.addEventListener('touchend', handler, { passive: false });
         });
     }
 
     // Плавная прокрутка к якорям
     scrollLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-            if (!targetElement) return;
-
-            // Закрываем меню на мобильных
-            if (window.innerWidth <= 767 && burger && burger.classList.contains('active')) {
-                burger.classList.remove('active');
-                nav.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-                burger.setAttribute('aria-expanded', 'false');
-
-                resetMobileMenuStyles();
-            }
-
-            // Если переход на Hero, сбрасываем и запускаем анимации
-            if (targetId === '#hero') {
-                // Сбрасываем анимации перед запуском
-                resetHeroAnimations();
-
-                // Запускаем анимации после небольшой задержки для плавности
-                setTimeout(() => {
-                    animateHeroElements();
-                }, 300);
-            }
-
-            // Прокрутка с учетом высоты хедера
-            const headerHeight = header ? header.offsetHeight : 0;
-            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        });
+        if (!link.hasAttribute('data-nav-link')) {
+            const handler = createLinkClickHandler(link);
+            link.addEventListener('click', handler);
+            link.addEventListener('touchend', handler, { passive: false });
+        }
     });
 
-    // Наблюдатель за секциями для анимаций
-    if (!isMobile) {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+    // Наблюдатель за секциями
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
 
-                    // Анимация для секции Hero
-                    if (entry.target.id === 'hero') {
-                        // Сбрасываем анимации перед запуском
-                        resetHeroAnimations();
-
-                        // Запускаем анимации
-                        setTimeout(() => {
-                            animateHeroElements();
-                        }, 200);
-                    }
-
-                    // Анимация счетчиков для секции "Обо мне"
-                    if (entry.target.id === 'about' && counters.length > 0 && !countersAnimated) {
-                        animateCounters();
-                        countersAnimated = true;
-
-                        // Сбрасываем флаг через некоторое время для повторной анимации
-                        setTimeout(() => {
-                            countersAnimated = false;
-                        }, 1000);
-                    }
-                } else {
-                    // При скрытии секции убираем видимость для повторной анимации
-                    entry.target.classList.remove('visible');
-
-                    // Для героя сбрасываем анимации
-                    if (entry.target.id === 'hero') {
-                        resetHeroAnimations();
-                    }
+                if (entry.target.id === 'hero') {
+                    resetHeroAnimations();
+                    setTimeout(() => {
+                        animateHeroElements();
+                    }, 200);
                 }
-            });
-        }, observerOptions);
 
-        // Добавляем класс fade-in и наблюдаем за секциями
-        sections.forEach(section => {
-            section.classList.add('fade-in');
-            observer.observe(section);
+                if (entry.target.id === 'about' && counters.length > 0 && !countersAnimated) {
+                    animateCounters();
+                    countersAnimated = true;
+
+                    setTimeout(() => {
+                        countersAnimated = false;
+                    }, 1000);
+                }
+            } else {
+                entry.target.classList.remove('visible');
+                if (entry.target.id === 'hero') {
+                    resetHeroAnimations();
+                }
+            }
         });
-    }
+    }, observerOptions);
 
-    // Обработка ошибок загрузки изображений
+    sections.forEach(section => {
+        section.classList.add('fade-in');
+        observer.observe(section);
+    });
+
     document.querySelectorAll('img').forEach(img => {
         img.addEventListener('error', function() {
             this.src = 'img/placeholder.jpg';
@@ -465,55 +508,49 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ===================== ИНИЦИАЛИЗАЦИЯ СТРАНИЦЫ =====================
-
-    function init() {
-        console.log('Сайт Виктории Пугач загружен');
-
-        // Инициализируем позиционирование меню
-        if (window.innerWidth > 767) {
-            setFixedNavPosition();
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && burger.classList.contains('active')) {
+            closeMobileMenu();
         }
+    });
 
-        // Если есть якорь в URL, активируем соответствующую секцию
-        const hash = window.location.hash;
-        if (hash && hash !== '#hero') {
-            const targetSection = document.getElementById(hash.substring(1));
-            if (targetSection) {
-                targetSection.classList.add('visible');
-            }
-        }
+    // ===================== ИНИЦИАЛИЗАЦИЯ =====================
 
-        // Добавляем CSS стили для анимаций
+    function initAnimations() {
+        console.log('Скрипт анимаций и бургер-меню загружен (исправленная версия)');
+
         const style = document.createElement('style');
         style.textContent = `
-            /* Плавные анимации для CTA и меню */
+            /* Плавные анимации для CTA */
             .hero__CTA {
                 opacity: 0;
                 will-change: opacity;
+                transition: opacity 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.3s;
             }
             
-            .nav__list {
-                opacity: 0;
-                will-change: opacity;
+            /* Убираем анимации для навигации на мобильных устройствах */
+            @media (max-width: 1024px) {
+                .nav__list {
+                    opacity: 1 !important;
+                }
             }
             
-            /* Стиль для активного пункта меню */
+            /* Анимации для навигации ТОЛЬКО НА ДЕСКТОПЕ */
+            @media (min-width: 1025px) {
+                .nav__list {
+                    opacity: 0;
+                    will-change: opacity;
+                    transition: opacity 1.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0.6s;
+                }
+            }
+            
+            /* Активный пункт меню */
             .nav__link.active {
-                color: var(--color-text-secondary) !important;
-                position: relative;
+                color: #B0B0B0 !important;
             }
             
-            .nav__link.active::after {
-                content: '';
-                position: absolute;
-                bottom: -5px;
-                left: 0;
-                width: 100%;
-                height: 1px;
-                background-color: var(--color-text-secondary);
-                opacity: 0.7;
-                transition: width 0.3s ease;
+            .nav__link.active:hover {
+                color: #B0B0B0 !important;
             }
             
             /* Дополнительные анимации для текста героя */
@@ -542,16 +579,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     opacity: 1;
                 }
             }
-            
-            /* Плавные переходы для всех анимированных элементов */
-            * {
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                backface-visibility: hidden;
-            }
         `;
         document.head.appendChild(style);
     }
 
-    init();
+    initAnimations();
 });

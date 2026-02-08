@@ -16,7 +16,7 @@
     <meta property="og:description" content="Создаю личные бренды для предпринимателей.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://brendstory.ru">
-    <meta property="og:image" content="./img/og-image.jpg">
+    <meta property="og:image" content="./img/og-image.png">
     <meta property="og:locale" content="ru_RU">
 
     <!-- Канонический URL -->
@@ -41,45 +41,46 @@
 </head>
 <body>
 <!-- Навигация -->
-<header class="header" id="header">
-    <div class="container">
-        <div class="header__inner">
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header__inner">
 
-            <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
-                <span class="burger__line"></span>
-                <span class="burger__line"></span>
-                <span class="burger__line"></span>
-            </button>
+                <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                </button>
 
-            <nav class="nav" id="nav">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#hero" class="nav__link" data-nav-link >Home</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#about" class="nav__link" data-nav-link>Обо Мне</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#services" class="nav__link" data-nav-link>Мои Услуги</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#cases" class="nav__link" data-nav-link>Кейсы и Истории</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#testimonials" class="nav__link" data-nav-link>Благодарности</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link" data-nav-link>Контакты</a>
-                    </li>
-                </ul>
-            </nav>
+                <nav class="nav" id="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#hero" class="nav__link" data-nav-link>Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link" data-nav-link>Обо Мне</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#services" class="nav__link" data-nav-link>Мои Услуги</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#cases" class="nav__link" data-nav-link>Кейсы и Истории</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#testimonials" class="nav__link" data-nav-link>Благодарности</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#contact" class="nav__link" data-nav-link>Контакты</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<!-- Герой секция с видеофоном -->
+<!-- Герой секция с видеофоном и меню-->
 <section class="hero" id="hero">
     <div class="hero__content">
+        <!-- Видео-фон (+ резервный img) -->
         <div class="hero__video-wrapper">
             <video class="hero__video" id="heroVideo" playsinline muted loop preload="metadata">
                 <source src="video/hero-bg.mp4" type="video/mp4">
@@ -87,19 +88,23 @@
             </video>
             <div class="hero__video-overlay"></div>
         </div>
+        <!-- Фото-превью -->
         <img src="./img/Photo_Hero.png" alt="фото эксперта по продвижении брендов" class="hero__photo">
-        <div class="hero__CTA">
-            <div class="hero__text">
-                <h1 class="hero__title">Виктория</h1>
-                <p class="hero__description">&#8222; Я делаю так, чтобы ваш бизнес увидели — настоящим, аутентичным, в
-                    полной мере его уникальности.&#8220;</p>
-            </div>
-            <div class="hero__buttons">
-                <a href="#contact" class="btn btn--primary" data-scroll-link>Связаться</a>
-                <a href="#cases" class="btn btn--secondary" data-scroll-link>Кейсы</a>
+        <!-- СТА - блок -->
+        <div>
+            <div class="hero__CTA">
+                <div class="hero__text">
+                    <h1 class="hero__title">Виктория</h1>
+                    <p class="hero__description">&#8222; Я делаю так, чтобы ваш бизнес увидели — настоящим, аутентичным,
+                        в
+                        полной мере его уникальности.&#8220;</p>
+                </div>
+                <div class="hero__buttons">
+                    <a href="#contact" class="btn btn--primary" data-scroll-link>Связаться</a>
+                    <a href="#cases" class="btn btn--secondary" data-scroll-link>Кейсы</a>
+                </div>
             </div>
         </div>
-
     </div>
 
 </section>
@@ -268,7 +273,7 @@
 <!-- Секция "Контакты" -->
 <section class="contact section" id="contact">
     <div class="contact__content">
-        <h2 class="contacts__title">Готова создать ваш уникальный бренд</h2>
+        <h2 class="contacts__title">Готова создать<br>Ваш уникальный бренд</h2>
         <div class="contact__info">
             <h3 class="contact__subtitle">Свяжитесь со мной</h3>
             <div class="contact__description">
@@ -354,7 +359,8 @@
             <div class="footer__bottom">
                 <p class="footer__copyright">© 2026 Виктория Пугач. Все права защищены.</p>
                 <a href="privacy-policy.html" class="footer__policy">Политика конфиденциальности</a>
-                <a href="https://t.me/Fesik_Evgeniya" class="footer__credits" target="_blank">design and development by Fesik</a>
+                <a href="https://t.me/Fesik_Evgeniya" class="footer__credits" target="_blank">design and development by
+                    Fesik</a>
             </div>
         </div>
     </div>
