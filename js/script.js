@@ -1,9 +1,8 @@
 /**
- * Скрипт для анимаций и работы с бургер-меню
+ Скрипт для анимаций и работы с бургер-меню
  */
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Элементы DOM
+// Элементы DOM
     const burger = document.getElementById('burger');
     const nav = document.getElementById('nav');
     const navLinks = document.querySelectorAll('[data-nav-link]');
@@ -15,40 +14,36 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroCTA = document.querySelector('.hero__CTA');
     const heroTitle = document.querySelector('.hero__title');
     const heroDescription = document.querySelector('.hero__description');
-
-    // Создаем оверлей для бургер-меню
+// Создаем оверлей для бургер-меню
     const burgerOverlay = document.createElement('div');
     burgerOverlay.className = 'burger-overlay';
     document.body.appendChild(burgerOverlay);
 
-    // Флаги для анимаций
+// Флаги для анимаций
     let heroNavAnimated = false;
     let countersAnimated = false;
     let isMenuAnimating = false;
     let activeNavItem = null;
 
-    // Константы для смещения
+// Константы для смещения
     const EXTRA_OFFSET = 20;
     const HEADER_STICKY_THRESHOLD = 100;
     const MOBILE_BREAKPOINT = 1024;
 
-    // Динамическая функция для статической переменной
+// Динамическая функция для статической переменной
     function isMobileDevice() {
         return window.innerWidth <= MOBILE_BREAKPOINT;
     }
 
-    // Проверка поддержки плавной прокрутки
-    const supportsSmoothScroll = 'scrollBehavior' in document.documentElement.style;
+// ===================== ФУНКЦИИ ДЛЯ РАБОТЫ С МОБИЛЬНЫМ МЕНЮ =====================
 
-    // ===================== ФУНКЦИИ ДЛЯ РАБОТЫ С МОБИЛЬНЫМ МЕНЮ =====================
-
-    // Функция открытия меню с правой стороны
+// Функция открытия меню с правой стороны
     function openMobileMenu() {
         if (isMenuAnimating || !isMobileDevice()) return;
 
         isMenuAnimating = true;
 
-        // Включаем прокрутку для body
+        // Включаем блокировку прокрутки для body
         document.body.classList.add('no-scroll');
 
         // Показываем оверлей
@@ -75,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 400);
     }
 
-    // Функция закрытия меню с выезжанием вправо
+// Функция закрытия меню с выезжанием вправо
     function closeMobileMenu() {
         if (isMenuAnimating || !isMobileDevice()) return;
 
@@ -96,12 +91,15 @@ document.addEventListener('DOMContentLoaded', function() {
             nav.style.transform = '';
             nav.style.transition = '';
             burgerOverlay.style.display = 'none';
-            document.body.classList.remove('no-scroll');
+            // Убираем no-scroll ТОЛЬКО если он ещё не был убран (защита от двойного удаления)
+            if (document.body.classList.contains('no-scroll')) {
+                document.body.classList.remove('no-scroll');
+            }
             isMenuAnimating = false;
         }, 300);
     }
 
-    // Функция переключения меню
+// Функция переключения меню
     function toggleMobileMenu(e) {
         if (e) {
             e.preventDefault();
@@ -117,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // ===================== ФУНКЦИИ ДЛЯ ВЫДЕЛЕНИЯ АКТИВНОГО ПУНКТА МЕНЮ =====================
+// ===================== ФУНКЦИИ ДЛЯ ВЫДЕЛЕНИЯ АКТИВНОГО ПУНКТА МЕНЮ =====================
 
     function updateActiveNavItem(targetId = null) {
         navLinks.forEach(link => {
@@ -151,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // ===================== ФУНКЦИИ АНИМАЦИЙ =====================
+// ===================== ФУНКЦИИ АНИМАЦИЙ =====================
 
     function animateElementWithReset(element, options = {}) {
         if (!element) return;
@@ -258,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ===================== STICKY HEADER И АКТИВНОЕ МЕНЮ =====================
+// ===================== STICKY HEADER И АКТИВНОЕ МЕНЮ =====================
 
     function handleStickyHeaderAndActiveMenu() {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -272,59 +270,9 @@ document.addEventListener('DOMContentLoaded', function() {
         updateActiveNavItem();
     }
 
-    // ===================== ПЛАВНАЯ ПРОКРУТКА =====================
+// ===================== ОБРАБОТЧИКИ СОБЫТИЙ =====================
 
-    // Функция плавной прокрутки
-    function smoothScrollTo(targetId, extraOffset = 0, closeMenu = false) {
-        return new Promise((resolve, reject) => {
-            const targetElement = document.querySelector(targetId);
-            if (!targetElement) {
-                reject(new Error(`Элемент ${targetId} не найден`));
-                return;
-            }
-
-            const headerHeight = header ? header.offsetHeight : 0;
-            const totalOffset = headerHeight + extraOffset;
-
-            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - totalOffset;
-
-            // Обновляем активный пункт ДО прокрутки
-            updateActiveNavItem(targetId);
-
-            // Прокручиваем БЕЗ закрытия меню
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-
-            // Закрываем меню ТОЛЬКО после завершения прокрутки
-            const checkScroll = setInterval(() => {
-                if (Math.abs(window.scrollY - targetPosition) < 5) {
-                    clearInterval(checkScroll);
-
-                    // Закрываем меню ПОСЛЕ прокрутки
-                    if (closeMenu && window.innerWidth <= MOBILE_BREAKPOINT) {
-                        closeMobileMenu();
-                    }
-
-                    setTimeout(resolve, 100);
-                }
-            }, 100);
-
-            // Таймаут на случай если прокрутка не сработает
-            setTimeout(() => {
-                clearInterval(checkScroll);
-                if (closeMenu && window.innerWidth <= MOBILE_BREAKPOINT) {
-                    closeMobileMenu();
-                }
-                resolve();
-            }, 1000);
-        });
-    }
-
-    // ===================== ОБРАБОТЧИКИ СОБЫТИЙ =====================
-
-    // Инициализация при загрузке
+// Инициализация при загрузке
     function initializeOnLoad() {
         const hash = window.location.hash;
         const isHeroSection = hash === '' || hash === '#hero' || !hash;
@@ -354,9 +302,15 @@ document.addEventListener('DOMContentLoaded', function() {
             resetHeroAnimations();
             if (hash) {
                 setTimeout(() => {
-                    smoothScrollTo(hash, EXTRA_OFFSET, false).catch(error => {
-                        console.error('Ошибка при прокрутке:', error);
-                    });
+                    const targetElement = document.querySelector(hash);
+                    if (targetElement) {
+                        const headerHeight = header ? header.offsetHeight : 0;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight - EXTRA_OFFSET;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 }, 100);
             }
         }
@@ -396,38 +350,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', handleStickyHeaderAndActiveMenu);
 
-    // Исправленный обработчик кликов по ссылкам навигации
-    function createLinkClickHandler(linkElement) {
-        return async function(e) {
-            if (e.cancelable) {
-                e.preventDefault();
-            }
+// ===================== КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ: ОБРАБОТЧИКИ КЛИКОВ ПО ССЫЛКАМ =====================
+// ВАЖНО: НЕ вызываем preventDefault() — разрешаем стандартную прокрутку браузера
+// Но СРАЗУ убираем no-scroll, чтобы не блокировать прокрутку во время анимации закрытия меню
 
-            const targetId = linkElement.getAttribute('href');
-            if (targetId === '#') return;
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || !targetId.startsWith('#')) return;
 
+            // Обновляем активный пункт ДО прокрутки
             updateActiveNavItem(targetId);
-            try {
-                // closeMenu = true — закрываем меню ПОСЛЕ прокрутки
-                await smoothScrollTo(targetId, EXTRA_OFFSET, true);
-            } catch (error) {
-                console.error('Ошибка при прокрутке:', error);
+
+            // Если меню открыто на мобильном — закрываем его
+            if (isMobileDevice() && burger.classList.contains('active')) {
+                // КРИТИЧЕСКИ ВАЖНО: убираем no-scroll СРАЗУ, чтобы разрешить прокрутку
+                document.body.classList.remove('no-scroll');
+                // Запускаем анимацию закрытия меню
+                closeMobileMenu();
             }
 
+            // Для херо-секции запускаем анимации после прокрутки
             if (targetId === '#hero') {
-                resetHeroAnimations();
+                // Используем таймаут, чтобы анимации запустились ПОСЛЕ завершения прокрутки
                 setTimeout(() => {
+                    resetHeroAnimations();
                     animateHeroElements();
-                }, 300);
+                }, 600);
             }
-        };
-    }
+        });
 
-    // Обработчики для бургер-меню
+        // Для тач-устройств
+        link.addEventListener('touchend', function(e) {
+            if (e.cancelable) e.preventDefault();
+            this.click();
+        }, { passive: false });
+    });
+
+// Обработчики для бургер-меню
     if (burger && nav) {
         burger.addEventListener('click', toggleMobileMenu);
 
-        // обработчик touchend для лучшей совместимости
+        // Обработчик touchend для лучшей совместимости
         burger.addEventListener('touchend', function(e) {
             if (e.cancelable) {
                 e.preventDefault();
@@ -442,25 +406,40 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             closeMobileMenu();
         }, { passive: false });
-
-        // Закрытие меню при клике на ссылку
-        navLinks.forEach(link => {
-            const handler = createLinkClickHandler(link);
-            link.addEventListener('click', handler);
-            link.addEventListener('touchend', handler, { passive: false });
-        });
     }
 
-    // Плавная прокрутка к якорям
+// Плавная прокрутка для остальных ссылок (не из мобильного меню)
     scrollLinks.forEach(link => {
         if (!link.hasAttribute('data-nav-link')) {
-            const handler = createLinkClickHandler(link);
-            link.addEventListener('click', handler);
-            link.addEventListener('touchend', handler, { passive: false });
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#' || !targetId.startsWith('#')) return;
+
+                e.preventDefault();
+                updateActiveNavItem(targetId);
+
+                const targetElement = document.querySelector(targetId);
+                if (!targetElement) return;
+
+                const headerHeight = header ? header.offsetHeight : 0;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight - EXTRA_OFFSET;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                if (targetId === '#hero') {
+                    setTimeout(() => {
+                        resetHeroAnimations();
+                        animateHeroElements();
+                    }, 600);
+                }
+            });
         }
     });
 
-    // Наблюдатель за секциями
+// Наблюдатель за секциями
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -510,76 +489,83 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && burger.classList.contains('active')) {
+            // Убираем no-scroll при закрытии через Esc
+            document.body.classList.remove('no-scroll');
             closeMobileMenu();
         }
     });
 
-    // ===================== ИНИЦИАЛИЗАЦИЯ =====================
+// ===================== ИНИЦИАЛИЗАЦИЯ =====================
 
     function initAnimations() {
-        console.log('Скрипт анимаций и бургер-меню загружен (исправленная версия)');
+        console.log('Скрипт анимаций и бургер-меню загружен (финальная исправленная версия)');
 
         const style = document.createElement('style');
         style.textContent = `
-            /* Плавные анимации для CTA */
-            .hero__CTA {
+        /* Плавные анимации для CTA */
+        .hero__CTA {
+            opacity: 0;
+            will-change: opacity;
+            transition: opacity 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.3s;
+        }
+         
+        /* Убираем анимации для навигации на мобильных устройствах */
+        @media (max-width: 1024px) {
+            .nav__list {
+                opacity: 1 !important;
+            }
+        }
+        
+        /* Анимации для навигации ТОЛЬКО НА ДЕСКТОПЕ */
+        @media (min-width: 1025px) {
+            .nav__list {
                 opacity: 0;
                 will-change: opacity;
-                transition: opacity 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.3s;
+                transition: opacity 1.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0.6s;
             }
-            
-            /* Убираем анимации для навигации на мобильных устройствах */
-            @media (max-width: 1024px) {
-                .nav__list {
-                    opacity: 1 !important;
-                }
+        }
+        
+        /* Активный пункт меню */
+        .nav__link.active {
+            color: #B0B0B0 !important;
+        }
+        
+        .nav__link.active:hover {
+            color: #B0B0B0 !important;
+        }
+         
+        /* Дополнительные анимации для текста героя */
+        .hero-title-animated {
+            animation: subtleGlow 3s ease-in-out infinite alternate;
+        }
+        
+        .hero-description-animated {
+            animation: subtleFade 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes subtleGlow {
+            0% {
+                text-shadow: 0 0 1px rgba(245, 245, 245, 0.1);
             }
-            
-            /* Анимации для навигации ТОЛЬКО НА ДЕСКТОПЕ */
-            @media (min-width: 1025px) {
-                .nav__list {
-                    opacity: 0;
-                    will-change: opacity;
-                    transition: opacity 1.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0.6s;
-                }
+            100% {
+                text-shadow: 0 0 3px rgba(245, 245, 245, 0.3);
             }
-            
-            /* Активный пункт меню */
-            .nav__link.active {
-                color: #B0B0B0 !important;
+        }
+         
+        @keyframes subtleFade {
+            0% {
+                opacity: 0.9;
             }
-            
-            .nav__link.active:hover {
-                color: #B0B0B0 !important;
+            100% {
+                opacity: 1;
             }
-            
-            /* Дополнительные анимации для текста героя */
-            .hero-title-animated {
-                animation: subtleGlow 3s ease-in-out infinite alternate;
-            }
-            
-            .hero-description-animated {
-                animation: subtleFade 3s ease-in-out infinite alternate;
-            }
-            
-            @keyframes subtleGlow {
-                0% {
-                    text-shadow: 0 0 1px rgba(245, 245, 245, 0.1);
-                }
-                100% {
-                    text-shadow: 0 0 3px rgba(245, 245, 245, 0.3);
-                }
-            }
-            
-            @keyframes subtleFade {
-                0% {
-                    opacity: 0.9;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-        `;
+        }
+        
+        /* Обеспечиваем плавную прокрутку на уровне CSS */
+        html {
+            scroll-behavior: smooth;
+        }
+    `;
         document.head.appendChild(style);
     }
 

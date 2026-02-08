@@ -515,7 +515,7 @@ body {
 .about {
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     padding-top: 80px;
     box-sizing: border-box;
@@ -602,7 +602,7 @@ body {
 .services {
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     padding-top: 80px;
     box-sizing: border-box;
@@ -675,7 +675,7 @@ body {
 .cases {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding-top: 80px;
     box-sizing: border-box;
