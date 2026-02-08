@@ -1523,7 +1523,7 @@ body.no-scroll {
         align-items: center;
         justify-content: space-between;
         padding: 20px;
-        min-height: 100vh;
+        height: 100vh;
     }
 
     .hero__photo {
@@ -1533,7 +1533,7 @@ body.no-scroll {
 
     .hero__CTA {
         position: absolute;
-        bottom: 0;
+        bottom: 10%;
         left: 10%;
         right: 10%;
         width: 80%;
@@ -1541,7 +1541,7 @@ body.no-scroll {
         align-items: center;
         text-align: center;
         margin-top: auto;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
         flex-direction: column;
         justify-content: center;
         padding: 24px 56px 40px;
