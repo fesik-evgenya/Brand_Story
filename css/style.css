@@ -1828,7 +1828,6 @@ body.no-scroll {
 
     .hero__content {
         padding: 15px;
-        bottom: calc(100vh/5);
     }
 
     .hero__photo {
@@ -1840,6 +1839,7 @@ body.no-scroll {
     .hero__CTA {
         padding: 15px 15px 20px;
         gap: 15px;
+        margin-bottom: 60px;
     }
 
     .hero__title {
