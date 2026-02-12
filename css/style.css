@@ -240,7 +240,7 @@ body {
     padding: 0.5rem 1rem;
     font-family: var(--font-heading), serif;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 1;
     letter-spacing: 1px;
 }
@@ -542,19 +542,19 @@ body {
 
 /* адаптивность секции "Обо мне" */
 .about__photo {
-    width: 300px;
-    height: 160px;
-    background-image: url('../img/About_photo.png');
+    width: calc(100vw/3);
+    height: auto;
+    background-image: url('../img/about.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     max-width: 100%;
-    aspect-ratio: 300/160;
+    aspect-ratio: 1188/1586;
 }
 
 .about__text p {
     margin-bottom: var(--spacing-md);
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     text-align: center;
     font-family: var(--font-body), serif;
     font-weight: 400;
@@ -749,7 +749,6 @@ body {
 /* Кнопки навигации карусели */
 .carousel__btn {
     position: absolute;
-    top: 50%;
     transform: translateY(-50%);
     width: 48px;
     height: 48px;
@@ -1011,7 +1010,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 32px;
     padding: 0 10px;
 }

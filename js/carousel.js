@@ -55,6 +55,21 @@ document.addEventListener('DOMContentLoaded', function() {
     let isTransitioning = false;
     let resizeTimeout;
 
+    // === Функция позиционирования стрелок по центру изображения ===
+    function positionCarouselButtons() {
+        if (!prevBtn || !nextBtn) return;
+
+        // Получаем актуальную высоту изображения для текущего разрешения
+        const imageHeight = getImageHeight();
+        // Центр изображения относительно верхней границы карусели
+        const offset = imageHeight / 2;
+
+        // Устанавливаем позицию через инлайн-стили (переопределяет CSS)
+        prevBtn.style.top = offset + 'px';
+        nextBtn.style.top = offset + 'px';
+    }
+    // ====================================================================================================
+
     // Инициализация карусели
     function initCarousel() {
         createSlides();
@@ -65,6 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Обновляем размеры после загрузки всех изображений
         window.addEventListener('load', updateCarouselDimensions);
+
+        positionCarouselButtons();
     }
 
     // Создание слайдов с адаптивным контентом
@@ -326,6 +343,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             updateCarouselPosition();
+            positionCarouselButtons();
+
         }
     }
 
@@ -417,6 +436,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 nextSlide();
             }
         });
+
+        window.addEventListener('orientationchange', function() {
+            setTimeout(positionCarouselButtons, 100);
+        });
+        // ==============================================================================================
     }
 
     // Автопрокрутка
