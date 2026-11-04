@@ -2,381 +2,656 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <!-- Основные SEO-теги -->
-    <title>Продвижение личных брендов</title>
-    <meta name="description" content="Создаю личные бренды. Стратегии PR, работа со СМИ, организация мероприятий.">
+    <!-- ===== SEO / Yandex 2027 ===== -->
+    <title>Виктория Пугач — стратегический PR и продвижение личных брендов</title>
+    <meta name="description"
+          content="Стратегический партнёр для экспертов и бизнесов. Личный бренд, PR, медиа, мероприятия и контент под ключ. Аутентичность как конкурентное преимущество.">
     <meta name="keywords"
-          content="личный бренд, продвижение, PR, СМИ, предприниматель, дизайнер, ювелир, салон, бизнес-журнал">
+          content="личный бренд, продвижение эксперта, PR, стратегия, медиа, подкасты, мероприятия, Виктория Пугач">
     <meta name="author" content="Виктория Пугач">
+    <link rel="canonical" href="https://brendstory.ru/">
 
-    <!-- Open Graph теги -->
-    <meta property="og:title" content="Виктория — Продвижение личных брендов">
-    <meta property="og:description" content="Эксперт по продвижению личных брендов. Создаю аутентичный имидж, который притягивает идеальных клиентов.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Виктория Пугач — стратегический PR и продвижение личных брендов">
+    <meta property="og:description"
+          content="Стратегический партнёр для экспертов и бизнесов. Личный бренд, PR, медиа, мероприятия и контент под ключ.">
     <meta property="og:image" content="https://brendstory.ru/img/og-image.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://brendstory.ru">
+    <meta property="og:url" content="https://brendstory.ru/">
     <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="BrendStory">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Виктория — Продвижение личных брендов">
-    <meta name="twitter:description" content="Эксперт по продвижению личных брендов. Создаю аутентичный имидж, который притягивает идеальных клиентов.">
+    <meta name="twitter:title" content="Виктория Пугач — стратегический PR и продвижение личных брендов">
+    <meta name="twitter:description"
+          content="Стратегический партнёр для экспертов и бизнесов. Личный бренд, PR, медиа, мероприятия и контент под ключ.">
     <meta name="twitter:image" content="https://brendstory.ru/img/og-image.webp">
 
-    <!-- Канонический URL -->
-    <link rel="canonical" href="https://brendstory.ru">
-
     <!-- Иконки -->
-    <link rel="icon" href="./img/icons/favicon.svg" type="image/x-icon">
+    <link rel="icon" href="./img/icons/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="./img/icons/favicon.svg">
 
-    <!-- Шрифты -->
+    <!-- Шрифты: preconnect + display swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
           rel="stylesheet">
 
     <!-- Стили -->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css?v=1.0.1">
+    <link rel="stylesheet" href="./css/style.css">
 
-    <!-- Preload критичных ресурсов -->
-    <link rel="preload" href="./css/style.css" as="style">
-    <link rel="preload" href="./js/script.js" as="script">
+    <!-- Preload критичного изображения (LCP) -->
+    <link rel="preload" href="./img/photo_hero.webp" as="image" type="image/webp">
 
-    <!-- мета-теги для мобильных устройств -->
+    <!-- ===== Schema.org JSON-LD ===== -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Person",
+                    "@id": "https://brendstory.ru/#person",
+                    "name": "Виктория Пугач",
+                    "jobTitle": "Эксперт по продвижению личных брендов, стратегический PR",
+                    "description": "Стратегический партнёр для экспертов и бизнесов. Личный бренд, PR, медиа, мероприятия и контент под ключ.",
+                    "url": "https://brendstory.ru/",
+                    "image": "https://brendstory.ru/img/victoria.jpg",
+                    "sameAs": [
+                        "https://t.me/vikamarket",
+                        "https://vk.com/vikapugach",
+                        "https://max.ru/u/f9LHodD0cOIyX2OoxoVJ6FcFrdNBCtsjozmD_WbzGksIdIKOzPjTtpALmNw"
+                    ],
+                    "knowsAbout": [
+                        "Personal Branding",
+                        "Public Relations",
+                        "Media Production",
+                        "Event Management",
+                        "Content Strategy"
+                    ],
+                    "worksFor": {
+                        "@id": "https://brendstory.ru/#organization"
+                    }
+                },
+                {
+                    "@type": "Organization",
+                    "@id": "https://brendstory.ru/#organization",
+                    "name": "BrendStory — Виктория Пугач",
+                    "url": "https://brendstory.ru/",
+                    "logo": "https://brendstory.ru/img/icons/logo.svg",
+                    "contactPoint": {
+                        "@type": "ContactPoint",
+                        "telephone": "+7-911-036-17-16",
+                        "contactType": "customer service",
+                        "areaServed": "RU",
+                        "availableLanguage": "Russian"
+                    }
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://brendstory.ru/#website",
+                    "url": "https://brendstory.ru/",
+                    "name": "BrendStory | Виктория Пугач",
+                    "description": "Стратегический PR и продвижение личных брендов",
+                    "publisher": {
+                        "@id": "https://brendstory.ru/#person"
+                    },
+                    "inLanguage": "ru-RU"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "@id": "https://brendstory.ru/#breadcrumb",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Главная",
+                            "item": "https://brendstory.ru/"
+                        }
+                    ]
+                },
+                {
+                    "@type": "Service",
+                    "@id": "https://brendstory.ru/#service-strategy",
+                    "name": "Стратегия и аудит личного бренда",
+                    "description": "Глубокий разбор соцсетей, позиционирования и медиа-присутствия. Дорожная карта продвижения на 6–12 месяцев.",
+                    "provider": {
+                        "@id": "https://brendstory.ru/#person"
+                    }
+                },
+                {
+                    "@type": "Service",
+                    "@id": "https://brendstory.ru/#service-media",
+                    "name": "Медиа-продакшн и дистрибуция контента",
+                    "description": "Съёмки под ключ, размещения в СМИ, продюсирование подкастов и участие в топовых шоу.",
+                    "provider": {
+                        "@id": "https://brendstory.ru/#person"
+                    }
+                },
+                {
+                    "@type": "Service",
+                    "@id": "https://brendstory.ru/#service-events",
+                    "name": "Мероприятия и выставки",
+                    "description": "Организация бизнес-завтраков, закрытых ужинов, конференций, презентаций и участие в выставках под ключ.",
+                    "provider": {
+                        "@id": "https://brendstory.ru/#person"
+                    }
+                },
+                {
+                    "@type": "Service",
+                    "@id": "https://brendstory.ru/#service-reviews",
+                    "name": "Авторские обзоры в социальных сетях",
+                    "description": "Обзоры отелей, ресторанов, пространств и путешествий. Нативные интеграции и семейный контент.",
+                    "provider": {
+                        "@id": "https://brendstory.ru/#person"
+                    }
+                },
+                {
+                    "@type": "FAQPage",
+                    "@id": "https://brendstory.ru/#faq",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": "С кем вы работаете?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "С предпринимателями и экспертами, которые хотят усилить личный бренд и выйти на новый уровень узнаваемости. С основателями бизнесов, которым нужна «правая рука» для управления репутацией, медиа и нетворком."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Чем отличается ваш подход?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Я не продаю услуги — я вхожу в команду. Работаю только с теми, кто готов расти по-настоящему. Выстраиваю личный бренд, который притягивает тех, кто вам действительно нужен, и отражает вашу суть без шаблонных решений."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Что входит в экспресс-разбор?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "За 40 минут я укажу на 3 главные ошибки, которые прямо сейчас мешают вам расти, и набросаю вектор стратегии. Это бесплатная консультация для знакомства."
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    </script>
+
     <meta name="theme-color" content="#252220">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
-<!-- Навигация -->
+
+<!-- ===== HEADER ===== -->
 <header class="header" id="header">
-    <div class="container">
-        <div class="header__inner">
+    <div class="header__container">
+        <a href="#" class="header__logo" aria-label="BrendStory — на главную">BrendStory</a>
 
-            <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
-                <span class="burger__line"></span>
-                <span class="burger__line"></span>
-                <span class="burger__line"></span>
-            </button>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
 
-            <nav class="nav" id="nav">
-                <ul class="nav__list">
-<!--                    <li class="nav__item">-->
-<!--                        <a href="#hero" class="nav__link" data-nav-link>Home</a>-->
-<!--                    </li>-->
-                    <li class="nav__item">
-                        <a href="#about" class="nav__link" data-nav-link>Обо Мне</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#services" class="nav__link" data-nav-link>Мои Услуги</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#cases" class="nav__link" data-nav-link>Кейсы и Истории</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#testimonials" class="nav__link" data-nav-link>Благодарности</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link" data-nav-link>Контакты</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="nav" id="nav" aria-label="Основная навигация">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#about" class="nav__link">Обо мне</a></li>
+                <li class="nav__item"><a href="#services" class="nav__link">Услуги</a></li>
+                <li class="nav__item"><a href="#cases" class="nav__link">Кейсы</a></li>
+                <li class="nav__item"><a href="#testimonials" class="nav__link">Отзывы</a></li>
+                <li class="nav__item"><a href="#faq" class="nav__link">FAQ</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link nav__link--cta">Контакты</a></li>
+            </ul>
+        </nav>
     </div>
 </header>
 
-<!-- Герой секция с видеофоном и меню-->
-<section class="hero" id="hero">
-    <div class="hero__content">
-        <!-- Видео-фон (+ резервный img) -->
-        <div class="hero__video-wrapper">
-            <video class="hero__video" id="heroVideo" playsinline muted loop preload="metadata">
-                <source src="video/hero-bg.mp4" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-            <div class="hero__video-overlay"></div>
-        </div>
-        <!-- Фото-превью -->
-        <img src="./img/Photo_Hero.png" alt="фото эксперта по продвижении брендов" class="hero__photo">
-        <!-- СТА - блок -->
-        <div>
-            <div class="hero__CTA">
-                <div class="hero__text">
-                    <h1 class="hero__title">Виктория</h1>
-                    <p class="hero__description">&#8222; Я делаю так, чтобы ваш бизнес увидели — настоящим, аутентичным,
-                        в
-                        полной мере его уникальности.&#8220;</p>
-                </div>
-                <div class="hero__buttons">
-                    <a href="#contact" class="btn btn--primary" data-scroll-link>Связаться</a>
-                    <a href="#cases" class="btn btn--secondary" data-scroll-link>Кейсы</a>
+<!-- ===== HERO ===== -->
+<main>
+    <section class="hero" id="hero" aria-label="Главный экран">
+        <div class="hero__bg" role="img" aria-label="Атмосферный фон с мягким светом"></div>
+        <div class="hero__overlay"></div>
+
+        <div class="hero__content">
+            <div class="hero__text">
+                <p class="hero__eyebrow">Стратегический PR · Личный бренд · Медиа</p>
+                <h1 class="hero__title">
+                    Виктория<br>
+                    <span class="hero__title-accent">Пугач</span>
+                </h1>
+                <p class="hero__description">
+                    Я делаю так, чтобы ваш бизнес увидели — настоящим, аутентичным, в полной мере его уникальности.
+                </p>
+                <div class="hero__actions">
+                    <a href="#contact" class="btn btn--primary">Обсудить проект</a>
+                    <a href="#services" class="btn btn--ghost">Мои Услуги</a>
                 </div>
             </div>
-        </div>
-    </div>
 
-</section>
-
-<!-- Секция "Обо мне" -->
-<section class="about section" id="about">
-    <div class="container">
-        <div class="section__header">
-            <h2 class="section__title">Обо мне</h2>
+            <div class="hero__portrait">
+                <img src="./img/photo_hero.webp"
+                     alt="Виктория Пугач, эксперт по продвижению личных брендов"
+                     class="hero__photo"
+                     width="480" height="640"
+                     fetchpriority="high"
+                     loading="eager">
+            </div>
         </div>
-        <div class="about__content">
-            <div class="about__info">
-                <img src="" alt="специалист за работой" class="about__photo">
-                <div class="about__text">
-                    <p>Моя работа — не просто имидж: это стратегия, где аутентичность становится вашим главным
-                        конкурентным
-                        преимуществом.</p>
-                    <p>Вместе мы выстраиваем личный бренд, который притягивает идеальных клиентов и отражает вашу
-                        экспертность без шаблонных решений.</p>
+
+        <div class="hero__scroll" aria-hidden="true">
+            <span>Листайте</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section__head">
+                <span class="section__label">01 — Обо мне</span>
+                <h2 class="section__title">Бренд — это всегда<br>про человека</h2>
+            </div>
+
+            <div class="about__grid">
+                <div class="about__visual">
+                    <img src="./img/about.png"
+                         alt="Виктория Пугач в деловой обстановке"
+                         class="about__photo"
+                         width="1000" height="1333"
+                         loading="lazy">
+                </div>
+
+                <div class="about__body">
+                    <p class="about__lead">
+                        Моя работа — не просто имидж: это стратегия, где аутентичность становится вашим главным
+                        конкурентным преимуществом.
+                    </p>
+                    <p>
+                        Вместе мы выстраиваем личный бренд, который притягивает тех, кто вам действительно нужен, и
+                        отражает вашу суть без шаблонных решений и искусственного глянца.
+                    </p>
+                    <p>
+                        Вместе мы выстраиваем личный бренд, который притягивает тех, кто вам действительно нужен, и
+                        отражает вашу суть без шаблонных решений и искусственного глянца.
+                    </p>
+                    <ul class="about__facts">
+                        <li>Запуск и управление деловым клубом, организация премиальных мероприятий и выставок.</li>
+                        <li>Эксперт по продвижению и коммуникациям. Продюсер и руководитель проектов.</li>
+                        <li>Работа в СМИ, продюсирование подкастов и контент-съёмок «под ключ».</li>
+                        <li>Создание и PR личных брендов, запуск и упаковка СТМ.</li>
+                    </ul>
+                    <p>
+                        Я — мама двух сыновей, люблю путешествия и красивые отели, уютные встречи и глубокие разговоры.
+                        Именно поэтому в работе для меня важны не только цифры и охваты, но и люди, атмосфера и смыслы.
+                    </p>
+                    <blockquote class="about__quote">
+                        «Я не продаю услуги — я вхожу в команду.<br>И работаю только с теми, кто готов расти
+                        по-настоящему».
+                    </blockquote>
                 </div>
             </div>
-            <div class="stats">
+
+            <div class="stats" aria-label="Ключевые показатели">
                 <div class="stats__item">
                     <span class="stats__number" data-counter="100">0</span>
-                    <span class="stats__text">клиентов</span>
+                    <span class="stats__label">клиентов</span>
                 </div>
                 <div class="stats__item">
                     <span class="stats__number" data-counter="150">0</span>
-                    <span class="stats__text">повышения продаж</span>
+                    <span class="stats__label">% роста продаж</span>
                 </div>
                 <div class="stats__item">
                     <span class="stats__number" data-counter="8">0</span>
-                    <span class="stats__text">лет в бизнесе</span>
+                    <span class="stats__label">лет в бизнесе</span>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Секция "Услуги" -->
-<section class="services section" id="services">
-    <div class="container">
-        <div class="section__header">
-            <h2 class="section__title">Мои услуги</h2>
+    <!-- ===== SERVICES ===== -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section__head">
+                <span class="section__label">02 — Услуги</span>
+                <h2 class="section__title">Что я делаю</h2>
+                <p class="section__subtitle">Четыре направления, которые складываются в целостную стратегию
+                    присутствия.</p>
+            </div>
+
+            <div class="services__grid">
+                <article class="service-card">
+                    <span class="service-card__num">01</span>
+                    <h3 class="service-card__title">Стратегия и аудит</h3>
+                    <p class="service-card__desc">Глубокий разбор соцсетей, позиционирования и медиа-присутствия. Нахожу
+                        точки роста и формирую дорожную карту на 6–12 месяцев.</p>
+                    <ul class="service-card__list">
+                        <li>Аудит текущих каналов</li>
+                        <li>Позиционирование</li>
+                        <li>Стратегия продвижения</li>
+                    </ul>
+                </article>
+
+                <article class="service-card">
+                    <span class="service-card__num">02</span>
+                    <h3 class="service-card__title">Медиа-продакшн</h3>
+                    <p class="service-card__desc">Съёмки под ключ: локации, команда, мудборд, режиссура съёмочного дня.
+                        Размещения в СМИ и продюсирование подкастов.</p>
+                    <ul class="service-card__list">
+                        <li>Съёмки под ключ</li>
+                        <li>PR в профильных СМИ</li>
+                        <li>Подкасты и шоу</li>
+                    </ul>
+                </article>
+
+                <article class="service-card">
+                    <span class="service-card__num">03</span>
+                    <h3 class="service-card__title">Мероприятия и выставки</h3>
+                    <p class="service-card__desc">Бизнес-завтраки, закрытые ужины, конференции, презентации. Участие в
+                        выставках: стенд, логистика, сопровождение.</p>
+                    <ul class="service-card__list">
+                        <li>Концепция и реализация</li>
+                        <li>Выставочные стенды</li>
+                        <li>Нетворкинг-программы</li>
+                    </ul>
+                </article>
+
+                <article class="service-card">
+                    <span class="service-card__num">04</span>
+                    <h3 class="service-card__title">Авторские обзоры</h3>
+                    <p class="service-card__desc">Отели, рестораны, уникальные пространства и путешествия. Нативные
+                        интеграции, семейный контент, единая стилистика.</p>
+                    <ul class="service-card__list">
+                        <li>Обзоры и сценарии</li>
+                        <li>Фото, видео, рилс</li>
+                        <li>Нативные интеграции</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="services__cta">
+                <p>Нужен экспресс-разбор?</p>
+                <a href="#contact" class="btn btn--primary">Записаться на консультацию</a>
+            </div>
         </div>
-        <div class="services__grid">
-            <article class="service-card">
-                <div class="service-card__heading">
-                    <img src="./img/icons/logo_card-service.svg" alt="logo service card">
-                    <h3 class="service-card__title">Стратегический PR</h3>
+    </section>
+
+    <!-- ===== CASES ===== -->
+    <section class="section cases" id="cases">
+        <div class="container">
+            <div class="section__head">
+                <span class="section__label">03 — Кейсы</span>
+                <h2 class="section__title">Истории, которые<br>говорят сами за себя</h2>
+            </div>
+
+            <div class="carousel" id="casesCarousel">
+                <div class="carousel__viewport" id="carouselViewport">
+                    <ul class="carousel__track" id="carouselTrack">
+                        <li class="case-card">
+                            <div class="case-card__image-wrap">
+                                <img src="./img/case-1.jpeg" alt="Кейс: сотрудничество с ресторанами" loading="lazy"
+                                     width="800" height="500">
+                            </div>
+                            <div class="case-card__body">
+                                <h3 class="case-card__title">Сотрудничество с ресторанами</h3>
+                                <p class="case-card__text">Рестораны — это не только место, где люди едят, но и
+                                    платформа для вашего бренда. Совместные мероприятия и дегустации усиливают
+                                    узнаваемость.</p>
+                            </div>
+                        </li>
+                        <li class="case-card">
+                            <div class="case-card__image-wrap">
+                                <img src="./img/case-2.jpeg" alt="Кейс: продвижение ювелирного бренда" loading="lazy"
+                                     width="800" height="500">
+                            </div>
+                            <div class="case-card__body">
+                                <h3 class="case-card__title">Продвижение ювелирного бренда</h3>
+                                <p class="case-card__text">Уникальная стратегия для ювелирной мастерской. Результат:
+                                    рост продаж и узнаваемость в профессиональном сообществе.</p>
+                            </div>
+                        </li>
+                        <li class="case-card">
+                            <div class="case-card__image-wrap">
+                                <img src="./img/case-3.jpeg" alt="Кейс: PR-кампания для дизайнера" loading="lazy"
+                                     width="800" height="500">
+                            </div>
+                            <div class="case-card__body">
+                                <h3 class="case-card__title">PR-кампания<br>для дизайнера</h3>
+                                <p class="case-card__text">Комплексная PR-кампания для дизайнера интерьеров: публикации
+                                    в профильных изданиях, участие в подкастах и медиа-проектах.</p>
+                            </div>
+                        </li>
+                        <li class="case-card">
+                            <div class="case-card__image-wrap">
+                                <img src="./img/case-4.jpeg" alt="Кейс: организация бизнес-ивента" loading="lazy"
+                                     width="800" height="500">
+                            </div>
+                            <div class="case-card__body">
+                                <h3 class="case-card__title">Организация<br>бизнес-ивента</h3>
+                                <p class="case-card__text">Мероприятие под ключ для сообщества женщин-предпринимателей.
+                                    Более 100 участников, освещение в СМИ и новые партнёрские связи.</p>
+                            </div>
+                        </li>
+                        <li class="case-card">
+                            <div class="case-card__image-wrap">
+                                <img src="./img/case-5.jpeg" alt="Кейс: стратегия для салона красоты" loading="lazy"
+                                     width="800" height="500">
+                            </div>
+                            <div class="case-card__body">
+                                <h3 class="case-card__title">Стратегия для<br>салона красоты</h3>
+                                <p class="case-card__text">Разработка стратегии личного бренда для владелицы салона.
+                                    Увеличение потока клиентов на 80% за 3 месяца.</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <p class="service-card__text">Выстраиваю узнаваемость через истории, а не шум. Ваш бренд становится
-                    источником вдохновения для целевой аудитории — естественно, без «накруток» и шаблонных
-                    пресс-релизов.</p>
-            </article>
-            <article class="service-card">
-                <div class="service-card__heading">
-                    <img src="./img/icons/logo_card-service.svg" alt="logo service card">
-                    <h3 class="service-card__title">Работа со СМИ</h3>
+
+                <div class="carousel__controls">
+                    <button class="carousel__btn" id="carouselPrev" aria-label="Предыдущий кейс">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="carousel__dots" id="carouselDots" role="tablist" aria-label="Навигация по кейсам"></div>
+                    <button class="carousel__btn" id="carouselNext" aria-label="Следующий кейс">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </button>
                 </div>
-                <p class="service-card__text">Публикации в профильных изданиях, подкастах и медиа-проектах. Не просто
-                    упоминания — экспертные материалы, где ваше имя ассоциируется с качеством и вкусом.</p>
-            </article>
-            <article class="service-card">
-                <div class="service-card__heading">
-                    <div class="service-card__heading">
-                        <img src="./img/icons/logo_card-service.svg" alt="logo service card">
-                        <h3 class="service-card__title">Организация мероприятий</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section__head">
+                <span class="section__label">04 — Благодарности</span>
+                <h2 class="section__title">Что говорят клиенты</h2>
+            </div>
+
+            <div class="testimonials__grid">
+                <blockquote class="testimonial">
+                    <p class="testimonial__text">Раньше меня путали с другими дизайнерами — теперь клиенты узнают мою
+                        эстетику с первого кадра. Даже конкуренты начали цитировать мои интервью как пример вкуса.</p>
+                    <footer class="testimonial__author">
+                        <cite class="testimonial__name">Анна</cite>
+                        <span class="testimonial__role">владелец бутика авторской одежды</span>
+                    </footer>
+                </blockquote>
+
+                <blockquote class="testimonial">
+                    <p class="testimonial__text">Не знала, что так просто можно стать узнаваемой! Теперь люди говорят:
+                        «О, это же она!» — даже без логотипа. Раньше всё было как-то тускло, а теперь — супер!</p>
+                    <footer class="testimonial__author">
+                        <cite class="testimonial__name">Екатерина</cite>
+                        <span class="testimonial__role">основательница ювелирной мастерской</span>
+                    </footer>
+                </blockquote>
+
+                <blockquote class="testimonial">
+                    <p class="testimonial__text">Виктория — не просто исполнитель, а настоящий партнёр. Она видит бренд
+                        глубже, чем ты сам, и предлагает решения, которые действительно работают.</p>
+                    <footer class="testimonial__author">
+                        <cite class="testimonial__name">Мария</cite>
+                        <span class="testimonial__role">главный редактор бизнес-журнала для женщин</span>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="section__head">
+                <span class="section__label">05 — FAQ</span>
+                <h2 class="section__title">Частые вопросы</h2>
+            </div>
+
+            <div class="faq__list">
+                <details class="faq__item">
+                    <summary class="faq__question">С кем вы работаете?</summary>
+                    <p class="faq__answer">С предпринимателями и экспертами, которые хотят усилить личный бренд и выйти
+                        на новый уровень узнаваемости. С основателями бизнесов, которым нужна «правая рука» для
+                        управления репутацией, медиа и нетворком.</p>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">Чем отличается ваш подход?</summary>
+                    <p class="faq__answer">Я не продаю услуги — я вхожу в команду. Работаю только с теми, кто готов
+                        расти по-настоящему. Выстраиваю личный бренд, который притягивает тех, кто вам действительно
+                        нужен, и отражает вашу суть без шаблонных решений.</p>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">Что входит в экспресс-разбор?</summary>
+                    <p class="faq__answer">За 40 минут я укажу на 3 главные ошибки, которые прямо сейчас мешают вам
+                        расти, и набросаю вектор стратегии. Это бесплатная консультация для знакомства.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact__inner">
+                <div class="contact__text">
+                    <span class="section__label">06 — Контакты</span>
+                    <h2 class="section__title">Готова создать<br>ваш уникальный бренд</h2>
+                    <p class="contact__desc">Давайте проведём экспресс-разбор ваших соцсетей и текущей медиа-активности.
+                        За 40 минут я укажу на 3 главные ошибки, которые прямо сейчас мешают вам расти, и набросаю
+                        вектор стратегии.</p>
+
+                    <div class="contact__links">
+                        <a href="tel:+79110361716" class="contact__link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M22 16.92V19.92C22 20.48 21.56 20.95 21 20.99C20.5 21.03 19.7 21 18.5 20.5C15.6 19.2 12.4 16.5 10 13.5C8.3 11.3 7.3 8.9 7 7C6.9 6.1 6.9 5.3 7 4.7C7.1 4.1 7.5 3.6 8 3.3L10.5 2C11 1.7 11.6 1.8 12 2.2L14.5 5.2C14.9 5.6 14.9 6.3 14.5 6.8L13 8.7C13.8 10.3 15 11.5 16.6 12.3L18.5 10.8C19 10.4 19.7 10.4 20.1 10.8L22.5 13.3C22.9 13.7 23 14.3 22.7 14.8L22 16.92Z"
+                                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                            <span>+7 (911) 036-17-16</span>
+                        </a>
+
+                        <div class="contact__social">
+                            <a href="https://vk.com/vikapugach" class="social-link" target="_blank"
+                               rel="noopener noreferrer" aria-label="ВКонтакте">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                    <path d="M13.162 18.994C7.892 18.994 4.546 15.428 4.416 9.798H7.198C7.288 13.928 9.238 15.658 10.758 16.034V9.798H13.442V13.368C14.92 13.208 16.478 11.608 16.982 9.798H19.638C19.252 11.998 17.542 13.598 16.338 14.238C17.542 14.758 19.492 16.158 20.216 18.994H17.31C16.748 17.258 15.324 15.938 13.442 15.752V18.994H13.162Z"
+                                          fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <p class="service-card__text">Организуем мероприятия под ключ: Вы — в роли вдохновителя и гостя, без
-                    стресса, с комфортом и гармонией. Я превращаю идею в безупречный опыт.</p>
-            </article>
-            <article class="service-card">
-                <div class="service-card__heading">
-                    <img src="./img/icons/logo_card-service.svg" alt="logo service card">
-                    <h3 class="service-card__title">Авторские обзоры</h3>
-                </div>
-                <p class="service-card__text">Позиционируете себя через эстетику путешествий или уникальные
-                    пространства? Создаю тексты и медиа-контент, где ваш вкус становится ориентиром для тех, кто ценит
-                    детали.</p>
-            </article>
-        </div>
-    </div>
-</section>
-
-<!-- Секция "Кейсы и истории" -->
-<section class="cases section" id="cases">
-    <div class="container">
-        <div class="section__header">
-            <h2 class="section__title">Кейсы и истории</h2>
-        </div>
-        <div class="carousel__nav" id="carouselNav">
-            <!-- Навигация будет заполнена через JavaScript -->
-        </div>
-
-        <div class="carousel" id="casesCarousel">
-            <div class="carousel__track-container">
-                <div class="carousel__track" id="carouselTrack">
-                    <!-- Карусель будет заполняться через JavaScript -->
-                </div>
-            </div>
-
-            <button class="carousel__btn carousel__btn--prev" id="carouselPrev" aria-label="Предыдущий слайд">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="currentColor"/>
-                </svg>
-            </button>
-
-            <button class="carousel__btn carousel__btn--next" id="carouselNext" aria-label="Следующий слайд">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.59 16.59L10 18L16 12L10 6L8.59 7.41L13.17 12L8.59 16.59Z" fill="currentColor"/>
-                </svg>
-            </button>
-        </div>
-    </div>
-</section>
-
-<!-- Секция "Благодарности" -->
-<section class="testimonials section" id="testimonials">
-    <div class="container">
-        <div class="section__header">
-            <h2 class="section__title">Благодарности</h2>
-        </div>
-
-        <div class="testimonials__grid">
-            <article class="testimonial-card">
-                <div class="testimonial-card__content">
-                    <p class="testimonial-card__text">Раньше меня путали с другими дизайнерами — теперь клиенты узнают
-                        мою эстетику с первого кадра. Даже конкуренты начали цитировать мои интервью как пример
-                        вкуса.</p>
-                </div>
-                <div class="testimonial-card__author">
-                    <span class="testimonial-card__name">Анна</span>
-                    <span class="testimonial-card__role">владелец бутика авторской одежды</span>
-                </div>
-            </article>
-
-            <article class="testimonial-card">
-                <div class="testimonial-card__content">
-                    <p class="testimonial-card__text">Не знала, что так просто можно стать узнаваемой! Теперь люди
-                        говорят: «О, это же она!» — даже без логотипа. Раньше всё было как-то тускло, а теперь —
-                        супер!</p>
-                </div>
-                <div class="testimonial-card__author">
-                    <span class="testimonial-card__name">Екатерина</span>
-                    <span class="testimonial-card__role">основательница ювелирной мастерской</span>
-                </div>
-            </article>
-
-            <article class="testimonial-card">
-                <div class="testimonial-card__content">
-                    <p class="testimonial-card__text">Не знала, что так просто можно стать узнаваемой! Теперь люди
-                        говорят: «О, это же она!» — даже без логотипа. Раньше всё было как-то тускло, а теперь —
-                        супер!</p>
-                </div>
-                <div class="testimonial-card__author">
-                    <span class="testimonial-card__name">Мария</span>
-                    <span class="testimonial-card__role">бизнес-журнала для женщин</span>
-                </div>
-            </article>
-        </div>
-    </div>
-</section>
-
-<!-- Секция "Контакты" -->
-<section class="contact section" id="contact">
-    <div class="contact__content">
-        <h2 class="contacts__title">Готова создать<br>Ваш уникальный бренд</h2>
-        <div class="contact__info">
-            <h3 class="contact__subtitle">Свяжитесь со мной</h3>
-            <div class="contact__description">
-                <a href="tel:+79110361716" class="contact__link" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.8166 4.68081C11.9415 4.86933 12.9634 5.40064 13.7791 6.21473C14.5949 7.02882 15.123 8.04858 15.3162 9.17117M10.9884 1.00024C12.9891 1.33874 14.8139 2.28565 16.2651 3.72959C17.7163 5.17782 18.6608 6.99882 19 8.99549M17.4371 16.9393C17.4371 16.9393 16.3509 18.0062 16.0847 18.319C15.6511 18.7817 15.1401 19.0002 14.4704 19.0002C14.406 19.0002 14.3373 19.0002 14.2729 18.996C12.9977 18.9145 11.8127 18.4175 10.924 17.9933C8.49385 16.8193 6.36 15.1526 4.5868 13.0402C3.12273 11.2792 2.14382 9.65104 1.4955 7.90289C1.09621 6.836 0.950234 6.00476 1.01464 5.22067C1.05757 4.71936 1.25078 4.30374 1.60713 3.94811L3.07121 2.48703C3.28159 2.28993 3.50485 2.18282 3.72381 2.18282C3.9943 2.18282 4.21327 2.34564 4.35066 2.48275C4.35495 2.48703 4.35925 2.49132 4.36354 2.4956C4.62544 2.73983 4.87446 2.99263 5.13636 3.26256C5.26946 3.39967 5.40685 3.53678 5.54424 3.67818L6.71636 4.8479C7.17147 5.30208 7.17147 5.72198 6.71636 6.17615C6.59185 6.30041 6.47163 6.42466 6.34712 6.54464C5.98647 6.91312 6.26978 6.63039 5.89625 6.96459C5.88766 6.97316 5.87908 6.97745 5.87478 6.98602C5.50554 7.3545 5.57424 7.71441 5.65152 7.95864C5.65582 7.97149 5.66011 7.98435 5.6644 7.9972C5.96924 8.73417 6.39859 9.42829 7.05119 10.2552L7.05549 10.2595C8.24048 11.7163 9.48988 12.8518 10.8681 13.7216C11.0441 13.833 11.2244 13.9229 11.3962 14.0086C11.5507 14.0858 11.6967 14.1586 11.8212 14.2357C11.8384 14.2443 11.8556 14.2571 11.8728 14.2657C12.0187 14.3385 12.1561 14.3728 12.2978 14.3728C12.6542 14.3728 12.8774 14.15 12.9504 14.0772L13.792 13.2373C13.938 13.0916 14.1698 12.916 14.4403 12.916C14.7065 12.916 14.9255 13.0831 15.0586 13.2288C15.0629 13.233 15.0629 13.233 15.0672 13.2373L17.4329 15.5982C17.8751 16.0352 17.4371 16.9393 17.4371 16.9393Z"
-                              stroke="#B0B0B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>+7 (911) 036-17-16</span>
-                </a>
-<!--                <a href="mailto:successmag@yandex.ru" class="contact__link" target="_blank">-->
-<!--                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--                        <path d="M1 7.74328C1 11.1911 1 16.5718 1 16.5718C1 17.9129 2.00736 19 3.25 19H16.75C17.9926 19 19 17.9129 19 16.5718V7.17339M1 7.74328C1 7.32468 1.19982 6.9356 1.52875 6.71375L10 1L18.4265 6.11523C18.7808 6.33027 19 6.73478 19 7.17339M1 7.74328C1.45 7.74328 10 13.7478 10 13.7478L19 7.17339"-->
-<!--                              stroke="#B0B0B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>-->
-<!--                    </svg>-->
-<!--                    <span>successmag@yandex.ru</span>-->
-<!--                </a>-->
-                <div class="contact__link-social">
-                    <a href="https://t.me/vikamarket" class="social-icon telegram" target="_blank">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M48 24C48 30.3652 45.4714 36.4697 40.9706 40.9706C36.4697 45.4714 30.3652 48 24 48C17.6348 48 11.5303 45.4714 7.02944 40.9706C2.52856 36.4697 0 30.3652 0 24C0 17.6348 2.52856 11.5303 7.02944 7.02944C11.5303 2.52856 17.6348 0 24 0C30.3652 0 36.4697 2.52856 40.9706 7.02944C45.4714 11.5303 48 17.6348 48 24ZM24.861 17.718C22.527 18.69 17.859 20.7 10.863 23.748C9.729 24.198 9.132 24.642 9.078 25.074C8.988 25.803 9.903 26.091 11.148 26.484L11.673 26.649C12.897 27.048 14.547 27.513 15.402 27.531C16.182 27.549 17.049 27.231 18.006 26.571C24.543 22.158 27.918 19.929 28.128 19.881C28.278 19.845 28.488 19.803 28.626 19.929C28.767 20.052 28.752 20.289 28.737 20.352C28.647 20.739 25.056 24.075 23.199 25.803C22.62 26.343 22.209 26.724 22.125 26.811C21.94 27 21.752 27.1861 21.561 27.369C20.421 28.467 19.569 29.289 21.606 30.633C22.587 31.281 23.373 31.812 24.156 32.346C25.008 32.928 25.86 33.507 26.964 34.233C27.243 34.413 27.513 34.608 27.774 34.794C28.767 35.502 29.664 36.138 30.765 36.036C31.407 35.976 32.07 35.376 32.406 33.576C33.201 29.325 34.764 20.118 35.124 16.323C35.146 16.0075 35.1329 15.6906 35.085 15.378C35.0568 15.1258 34.9347 14.8934 34.743 14.727C34.47 14.5386 34.1446 14.4409 33.813 14.448C32.913 14.463 31.524 14.946 24.861 17.718Z"
-                                  fill="#B0B0B0"/>
-                        </svg>
-                    </a>
-                    <a href="https://vk.com/vikapugach" class="social-icon vk" target="_blank">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M31.3751 0H16.65C3.19994 0 0 3.19994 0 16.6249V31.35C0 44.7999 3.17506 48 16.6249 48H31.35C44.8001 48 48 44.8249 48 31.3749V16.65C48 3.19994 44.8249 0 31.3751 0ZM38.7499 34.2499H35.25C33.9251 34.2499 33.525 33.1749 31.1501 30.7999C29.0749 28.8 28.2 28.5499 27.675 28.5499C26.9501 28.5499 26.7499 28.7499 26.7499 29.7499V32.8999C26.7499 33.75 26.475 34.2499 24.2501 34.2499C22.091 34.1049 19.9973 33.449 18.1413 32.3363C16.2854 31.2236 14.7203 29.6859 13.575 27.8499C10.8561 24.4657 8.96426 20.4937 8.05006 16.2499C8.05006 15.7249 8.25 15.2499 9.25006 15.2499H12.75C13.65 15.2499 13.9751 15.6499 14.325 16.575C16.0249 21.5749 18.9251 25.9249 20.1 25.9249C20.55 25.9249 20.7499 25.725 20.7499 24.6V19.4499C20.5999 17.1 19.35 16.8999 19.35 16.05C19.3665 15.8258 19.4697 15.6168 19.6377 15.4674C19.8057 15.318 20.0254 15.24 20.25 15.2499H25.7501C26.5001 15.2499 26.7499 15.6249 26.7499 16.5249V23.475C26.7499 24.225 27.075 24.4749 27.3 24.4749C27.75 24.4749 28.0999 24.225 28.9249 23.4C30.6978 21.238 32.1464 18.8294 33.225 16.2499C33.3351 15.9396 33.5438 15.6738 33.8192 15.4932C34.0946 15.3126 34.4215 15.2272 34.7501 15.2499H38.25C39.3 15.2499 39.525 15.7749 39.3 16.5249C38.0265 19.3769 36.4508 22.084 34.6001 24.6C34.2251 25.1749 34.0751 25.4749 34.6001 26.1499C34.95 26.6749 36.1751 27.6999 37.0001 28.6749C38.2 29.8719 39.1964 31.2568 39.9499 32.775C40.2499 33.75 39.75 34.2499 38.7499 34.2499Z"
-                                  fill="#B0B0B0"/>
-                        </svg>
-                    </a>
-                    <a href="https://max.ru/u/f9LHodD0cOIyX2OoxoVJ6FcFrdNBCtsjozmD_WbzGksIdIKOzPjTtpALmNw" class="social-icon max" target="_blank">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.75 0H36.2416C42.7045 0 47.9919 5.30488 47.9919 11.7887V36.2113C47.9919 42.6951 42.7045 48 36.2416 48H11.75C5.28747 48 0 42.6951 0 36.2113V11.7887C0 5.30488 5.28747 0 11.75 0ZM24.3677 40.9878C20.9881 40.9878 19.4178 40.494 16.696 38.5194C14.9634 40.7412 9.51067 42.4696 9.2706 39.5069C9.2706 37.2869 8.77091 35.4167 8.21979 33.3585C7.54534 30.8363 6.79517 28.0308 6.79517 23.9534C6.79517 14.2314 14.7937 6.91797 24.2787 6.91797C33.7609 6.91797 41.197 14.5868 41.197 24.048C41.197 33.5079 33.524 40.9881 24.3674 40.9881L24.3677 40.9878ZM24.5046 15.3239C19.89 15.0828 16.2893 18.275 15.495 23.2716C14.8366 27.4102 16.0032 32.4521 17.0004 32.7056C17.471 32.8252 18.6755 31.8535 19.4175 31.1133C20.6392 31.9026 22.0402 32.5147 23.598 32.5951C28.3362 32.8426 32.5337 29.1462 32.7826 24.4224C33.0312 19.6986 29.2428 15.5714 24.5052 15.3239H24.5046Z" fill="#B0B0B0"/>
-                        </svg>
-                    </a>
+                <div class="contact__CTA-boxes">
+                    <div class="contact__cta-box">
+                        <p class="contact__cta-label">Экспресс-разбор</p>
+                        <p class="contact__cta-price">40 минут</p>
+                        <p class="contact__cta-note">3 главные ошибки · вектор стратегии</p>
+                        <a href="https://t.me/vikamarket" class="btn btn--primary btn--full" target="_blank"
+                           rel="noopener noreferrer">Написать в Telegram</a>
+                    </div>
+                    <div class="contact__cta-box">
+                        <p class="contact__cta-label">Экспресс-разбор</p>
+                        <p class="contact__cta-price">40 минут</p>
+                        <p class="contact__cta-note">3 главные ошибки · вектор стратегии</p>
+                        <a href="https://max.ru/u/f9LHodD0cOIyX2OoxoVJ6FcFrdNBCtsjozmD_WbzGksIdIKOzPjTtpALmNw"
+                           class="btn btn--primary btn--full" target="_blank"
+                           rel="noopener noreferrer">Написать в MAX</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</main>
 
-<!-- Футер -->
+<!-- ===== FOOTER ===== -->
 <footer class="footer">
     <div class="container">
-        <div class="footer__inner">
-            <div class="footer__content">
-                <div class="footer__main">
-                    <a href="#hero" class="footer__logo">Виктория</a>
-                    <p class="footer__tagline">Эксперт по продвижению личных брендов</p>
-                </div>
-                <div class="footer__contacts">
-                    <a href="tel:+79110361716" class="footer__link" target="_blank">+7 (911) 036-17-16</a>
-<!--                    <a href="mailto:successmag@yandex.ru" class="footer__link" target="_blank">successmag@yandex.ru</a>-->
-                    <div class="footer__social">
-                        <a href="https://t.me/vikamarket" class="footer-icon telegram" target="_blank">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12ZM12.4305 8.859C11.2635 9.345 8.9295 10.35 5.4315 11.874C4.8645 12.099 4.566 12.321 4.539 12.537C4.494 12.9015 4.9515 13.0455 5.574 13.242L5.8365 13.3245C6.4485 13.524 7.2735 13.7565 7.701 13.7655C8.091 13.7745 8.5245 13.6155 9.003 13.2855C12.2715 11.079 13.959 9.9645 14.064 9.9405C14.139 9.9225 14.244 9.9015 14.313 9.9645C14.3835 10.026 14.376 10.1445 14.3685 10.176C14.3235 10.3695 12.528 12.0375 11.5995 12.9015C11.31 13.1715 11.1045 13.362 11.0625 13.4055C10.97 13.5 10.876 13.593 10.7805 13.6845C10.2105 14.2335 9.7845 14.6445 10.803 15.3165C11.2935 15.6405 11.6865 15.906 12.078 16.173C12.504 16.464 12.93 16.7535 13.482 17.1165C13.6215 17.2065 13.7565 17.304 13.887 17.397C14.3835 17.751 14.832 18.069 15.3825 18.018C15.7035 17.988 16.035 17.688 16.203 16.788C16.6005 14.6625 17.382 10.059 17.562 8.1615C17.573 8.00376 17.5664 7.8453 17.5425 7.689C17.5284 7.56288 17.4673 7.44669 17.3715 7.3635C17.235 7.26928 17.0723 7.22047 16.9065 7.224C16.4565 7.2315 15.762 7.473 12.4305 8.859Z" fill="#B0B0B0"/>
-                            </svg>
-                        </a>
-                        <a href="https://vk.com/vikapugach" class="footer-icon vk" target="_blank">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15.6875 0H8.325C1.59997 0 0 1.59997 0 8.31247V15.675C0 22.4 1.58753 24 8.31247 24H15.675C22.4 24 24 22.4125 24 15.6875V8.325C24 1.59997 22.4125 0 15.6875 0ZM19.375 17.125H17.625C16.9625 17.125 16.7625 16.5875 15.575 15.4C14.5375 14.4 14.1 14.275 13.8375 14.275C13.475 14.275 13.375 14.375 13.375 14.875V16.45C13.375 16.875 13.2375 17.125 12.125 17.125C11.0455 17.0524 9.99863 16.7245 9.07066 16.1681C8.14268 15.6118 7.36015 14.843 6.7875 13.925C5.42803 12.2328 4.48213 10.2469 4.02503 8.12497C4.02503 7.86247 4.125 7.62496 4.62503 7.62496H6.375C6.825 7.62496 6.98753 7.82497 7.1625 8.2875C8.01247 10.7875 9.46253 12.9625 10.05 12.9625C10.275 12.9625 10.375 12.8625 10.375 12.3V9.72496C10.3 8.55 9.675 8.44996 9.675 8.025C9.68323 7.91288 9.73483 7.80839 9.81885 7.73369C9.90287 7.659 10.0127 7.62 10.125 7.62496H12.875C13.25 7.62496 13.375 7.81246 13.375 8.26246V11.7375C13.375 12.1125 13.5375 12.2375 13.65 12.2375C13.875 12.2375 14.05 12.1125 14.4625 11.7C15.3489 10.619 16.0732 9.4147 16.6125 8.12497C16.6675 7.96978 16.7719 7.83689 16.9096 7.7466C17.0473 7.6563 17.2108 7.61358 17.375 7.62496H19.125C19.65 7.62496 19.7625 7.88746 19.65 8.26246C19.0132 9.68843 18.2254 11.042 17.3 12.3C17.1125 12.5875 17.0375 12.7375 17.3 13.075C17.475 13.3375 18.0875 13.85 18.5 14.3375C19.1 14.9359 19.5982 15.6284 19.975 16.3875C20.125 16.875 19.875 17.125 19.375 17.125Z"
-                                      fill="#B0B0B0"/>
-                            </svg>
-                        </a>
-                        <a href="https://max.ru/u/f9LHodD0cOIyX2OoxoVJ6FcFrdNBCtsjozmD_WbzGksIdIKOzPjTtpALmNw" class="footer-icon max" target="_blank">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.876 0H18.1238C21.3558 0 24 2.65244 24 5.89437V18.1056C24 21.3476 21.3558 24 18.1238 24H5.876C2.64418 24 0 21.3476 0 18.1056V5.89437C0 2.65244 2.64418 0 5.876 0ZM12.1857 20.4938C10.4956 20.4938 9.71031 20.2469 8.34918 19.2596C7.48277 20.3705 4.75593 21.2347 4.63587 19.7533C4.63587 18.6433 4.38599 17.7082 4.11038 16.6791C3.7731 15.418 3.39795 14.0153 3.39795 11.9766C3.39795 7.11556 7.3979 3.45886 12.1412 3.45886C16.8831 3.45886 20.6017 7.29328 20.6017 12.0239C20.6017 16.7538 16.7646 20.4939 12.1855 20.4939L12.1857 20.4938ZM12.2542 7.66185C9.94647 7.54126 8.14583 9.13738 7.74859 11.6357C7.41935 13.705 8.00274 16.2259 8.50141 16.3527C8.73679 16.4125 9.33911 15.9267 9.71015 15.5565C10.3211 15.9512 11.0218 16.2572 11.8008 16.2974C14.1703 16.4212 16.2694 14.573 16.3939 12.2111C16.5182 9.84919 14.6237 7.7856 12.2545 7.66185H12.2542Z" fill="#B0B0B0"/>
-                            </svg>
-                        </a>
-                    </div>
+        <div class="footer__top">
+            <div class="footer__brand">
+                <a href="#" class="footer__logo">BrendStory</a>
+                <p class="footer__tagline">Стратегический партнёр для экспертов и бизнесов, которые хотят быть
+                    услышанными</p>
+            </div>
+
+            <nav class="footer__nav" aria-label="Навигация в подвале">
+                <a href="#about">Обо мне</a>
+                <a href="#services">Услуги</a>
+                <a href="#cases">Кейсы</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+
+            <div class="footer__contacts">
+                <a href="tel:+79110361716">+7 (911) 036-17-16</a>
+                <div class="footer__social">
+                    <a href="https://t.me/vikamarket" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12ZM12.4305 8.859C11.2635 9.345 8.9295 10.35 5.4315 11.874C4.8645 12.099 4.566 12.321 4.539 12.537C4.494 12.9015 4.9515 13.0455 5.574 13.242L5.8365 13.3245C6.4485 13.524 7.2735 13.7565 7.701 13.7655C8.091 13.7745 8.5245 13.6155 9.003 13.2855C12.2715 11.079 13.959 9.9645 14.064 9.9405C14.139 9.9225 14.244 9.9015 14.313 9.9645C14.3835 10.026 14.376 10.1445 14.3685 10.176C14.3235 10.3695 12.528 12.0375 11.5995 12.9015C11.31 13.1715 11.1045 13.362 11.0625 13.4055C10.97 13.5 10.876 13.593 10.7805 13.6845C10.2105 14.2335 9.7845 14.6445 10.803 15.3165C11.2935 15.6405 11.6865 15.906 12.078 16.173C12.504 16.464 12.93 16.7535 13.482 17.1165C13.6215 17.2065 13.7565 17.304 13.887 17.397C14.3835 17.751 14.832 18.069 15.3825 18.018C15.7035 17.988 16.035 17.688 16.203 16.788C16.6005 14.6625 17.382 10.059 17.562 8.1615C17.573 8.00376 17.5664 7.8453 17.5425 7.689C17.5284 7.56288 17.4673 7.44669 17.3715 7.3635C17.235 7.26928 17.0723 7.22047 16.9065 7.224C16.4565 7.2315 15.762 7.473 12.4305 8.859Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="https://vk.com/vikapugach" target="_blank" rel="noopener noreferrer"
+                       aria-label="ВКонтакте">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.6875 0H8.325C1.59997 0 0 1.59997 0 8.31247V15.675C0 22.4 1.58753 24 8.31247 24H15.675C22.4 24 24 22.4125 24 15.6875V8.325C24 1.59997 22.4125 0 15.6875 0ZM19.375 17.125H17.625C16.9625 17.125 16.7625 16.5875 15.575 15.4C14.5375 14.4 14.1 14.275 13.8375 14.275C13.475 14.275 13.375 14.375 13.375 14.875V16.45C13.375 16.875 13.2375 17.125 12.125 17.125C11.0455 17.0524 9.99863 16.7245 9.07066 16.1681C8.14268 15.6118 7.36015 14.843 6.7875 13.925C5.42803 12.2328 4.48213 10.2469 4.02503 8.12497C4.02503 7.86247 4.125 7.62496 4.62503 7.62496H6.375C6.825 7.62496 6.98753 7.82497 7.1625 8.2875C8.01247 10.7875 9.46253 12.9625 10.05 12.9625C10.275 12.9625 10.375 12.8625 10.375 12.3V9.72496C10.3 8.55 9.675 8.44996 9.675 8.025C9.68323 7.91288 9.73483 7.80839 9.81885 7.73369C9.90287 7.659 10.0127 7.62 10.125 7.62496H12.875C13.25 7.62496 13.375 7.81246 13.375 8.26246V11.7375C13.375 12.1125 13.5375 12.2375 13.65 12.2375C13.875 12.2375 14.05 12.1125 14.4625 11.7C15.3489 10.619 16.0732 9.4147 16.6125 8.12497C16.6675 7.96978 16.7719 7.83689 16.9096 7.7466C17.0473 7.6563 17.2108 7.61358 17.375 7.62496H19.125C19.65 7.62496 19.7625 7.88746 19.65 8.26246C19.0132 9.68843 18.2254 11.042 17.3 12.3C17.1125 12.5875 17.0375 12.7375 17.3 13.075C17.475 13.3375 18.0875 13.85 18.5 14.3375C19.1 14.9359 19.5982 15.6284 19.975 16.3875C20.125 16.875 19.875 17.125 19.375 17.125Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="https://max.ru/u/f9LHodD0cOIyX2OoxoVJ6FcFrdNBCtsjozmD_WbzGksIdIKOzPjTtpALmNw" class="footer-icon max" target="_blank">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.876 0H18.1238C21.3558 0 24 2.65244 24 5.89437V18.1056C24 21.3476 21.3558 24 18.1238 24H5.876C2.64418 24 0 21.3476 0 18.1056V5.89437C0 2.65244 2.64418 0 5.876 0ZM12.1857 20.4938C10.4956 20.4938 9.71031 20.2469 8.34918 19.2596C7.48277 20.3705 4.75593 21.2347 4.63587 19.7533C4.63587 18.6433 4.38599 17.7082 4.11038 16.6791C3.7731 15.418 3.39795 14.0153 3.39795 11.9766C3.39795 7.11556 7.3979 3.45886 12.1412 3.45886C16.8831 3.45886 20.6017 7.29328 20.6017 12.0239C20.6017 16.7538 16.7646 20.4939 12.1855 20.4939L12.1857 20.4938ZM12.2542 7.66185C9.94647 7.54126 8.14583 9.13738 7.74859 11.6357C7.41935 13.705 8.00274 16.2259 8.50141 16.3527C8.73679 16.4125 9.33911 15.9267 9.71015 15.5565C10.3211 15.9512 11.0218 16.2572 11.8008 16.2974C14.1703 16.4212 16.2694 14.573 16.3939 12.2111C16.5182 9.84919 14.6237 7.7856 12.2545 7.66185H12.2542Z" fill="currentColor"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
-            <div class="footer__bottom">
-                <p class="footer__copyright">© 2026 Виктория Пугач. Все права защищены.</p>
-                <a href="privacy-policy.html" class="footer__policy">Политика конфиденциальности</a>
-                <a href="https://t.me/Fesik_Evgeniya" class="footer__credits" target="_blank">design and development by
-                    Fesik</a>
-            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <p class="footer__copyright">© 2026 Виктория Пугач. Все права защищены.</p>
+            <a href="./privacy-policy.html" class="footer__policy">Политика конфиденциальности</a>
+            <p class="footer__credits">design & development — <a href="http://сайтвделе.рф/" target="_blank"
+                                                                 rel="noopener noreferrer">Fesik</a></p>
         </div>
     </div>
 </footer>
 
-<!-- Скрипты -->
-<script src="./js/video-bg.js" defer></script>
-<script src="./js/carousel.js" defer></script>
 <script src="./js/script.js" defer></script>
 </body>
 </html>
